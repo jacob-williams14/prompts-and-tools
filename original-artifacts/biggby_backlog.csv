@@ -1,0 +1,1323 @@
+Card ID,Card Name,Card URL,Card Description,Labels,Members,Due Date,Attachment Count,Attachment Links,Checklist Item Total Count,Checklist Item Completed Count,Vote Count,Comment Count,Last Activity Date,List ID,List Name,Board ID,Board Name,Archived,Start Date,Due Complete,Effort,Sprint #,Bug
+686ec5f4393caed3867517e1,iOS autofill makes user log in twice,https://trello.com/c/D9FkdJ3z/237-ios-autofill-makes-user-log-in-twice,"## Summary
+ 
+
+ Users have to login twice when using password autofill for sign in (first time keeps .com open instead of sending you into the app)
+ 
+
+ **Priority / Severity Level:**
+ 
+
+ ## Steps to Reproduce
+ 
+
+ Use autofill to log in, the browser window will be left open. Once you close it, you will need to log in again to enter the app.
+ 
+
+ When typing credentials in manually, users do not have this problem.
+ 
+
+ ## Expected Behavior
+ 
+
+ ‌
+ 
+
+ ## Additional Context
+ 
+
+ - Device model & OS?
+ - Build ID + Update ID?
+ - User account id?
+ - Light/dark Mode?
+ - Error messages?
+ - Screenshots?",Authentication & Account Setup (red),"jacobwilliams122, jakesilas2",,1,https://trello.com/1/cards/686ec5f4393caed3867517e1/attachments/68706e67af8894aa01f1c845/download/iOS_log_into_BIGGBY_twice_with_password_manager_autofill.MP4,0,0,0,2,2025-08-18T13:40:53.809Z,678e8756a5ee08c3e36a20cd,Actively In Progress,677ef01803e9bf50a131644a,App 2.0 x AO,FALSE,,FALSE,,,TRUE
+681df31d21d3910ead53ca7a,Globalize SVG Background,https://trello.com/c/faa3iU9A/169-globalize-svg-background,"## Issues
+ 
+
+ Currently, there isn’t an obvious out of the box way for us to use an SVG as a background. We need to find a way to globally wrap each screen so it has the background image.
+ 
+
+ Look to investigate this problem and timebox the effort. `expo-system-ui` might be a good place to start looking.
+ 
+
+ Potential Solutions
+ 
+
+ - Layout file
+ - Context provider",UX Enhancements (orange_light),jacobwilliams122,,0,,0,0,0,0,2025-05-15T12:51:09.534Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,8,
+689de733cad991a4303264c2,User shouldn't be allowed to checkout if Biggby Card has insufficient funds,https://trello.com/c/eIUDsmMW/302-user-shouldnt-be-allowed-to-checkout-if-biggby-card-has-insufficient-funds,"## Summary
+ 
+
+ If user processes Biggby card payment with insufficient funds, the Oops! modal displays, with the option to Try Again or Take me home.
+ 
+
+ ## Steps to Reproduce
+ 
+
+ 1. Log into the app with a user who has a Biggby gift balance < $5
+ 2. Go through the process to set store if needed
+ 3. Add an item to the cart
+ 4. Tap checkout icon
+ 5. Tap Continue to pickup
+ 6. Tap Continue to payment
+ 7. Tap Biggby Card
+ 8. Tap Checkout. Error displays
+ 
+
+ ## Expected Behavior
+ 
+
+ - User shouldn’t be able to tap “Checkout” button if they’re selected on BIGGBY card payment method but there’s not enough in account to cover their order total
+ 
+
+ ## Screenshots/videos
+ 
+
+ [Oops for issue procesisng order - insufficient Biggby funds.MP4](https://trello.com/1/cards/689de733cad991a4303264c2/attachments/689de87362ef9a7f7660e2b7/download/Oops_for_issue_procesisng_order_-_insufficient_Biggby_funds.MP4 """"‌"")[Oops for issue procesisng order - insufficient Biggby funds.MP4](https://trello.com/1/cards/689de733cad991a4303264c2/attachments/689de87bfbe9eccfb19d5a34/download/Oops_for_issue_procesisng_order_-_insufficient_Biggby_funds.MP4 """"‌"")
+ 
+
+ ![Oops\_for\_issue\_procesisng\_order\_-\_insufficient\_Biggby\_funds.PNG](https://trello.com/1/cards/689de733cad991a4303264c2/attachments/689de88656b737875bfd31e5/download/Oops_for_issue_procesisng_order_-_insufficient_Biggby_funds.PNG)
+ 
+
+ ##",Order & Checkout (green),jacobwilliams122,,2,"https://trello.com/1/cards/689de733cad991a4303264c2/attachments/689de87362ef9a7f7660e2b7/download/Oops_for_issue_procesisng_order_-_insufficient_Biggby_funds.MP4, https://trello.com/1/cards/689de733cad991a4303264c2/attachments/689de88656b737875bfd31e5/download/Oops_for_issue_procesisng_order_-_insufficient_Biggby_funds.PNG",0,0,0,0,2025-08-22T15:28:44.486Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,15,TRUE
+6800f7b14b83a42d733a5da5,Authenticated home screen uses new branding,https://trello.com/c/GK84SBu6/140-authenticated-home-screen-uses-new-branding,"## Context
+ 
+
+ ## Acceptance Criteria
+ 
+
+ - Ian signs off on design aesthetics
+ 
+
+ ## Tech Hypothesis
+ 
+
+ ## Designs
+ 
+
+ Figma link: [https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=2132-24029&t=ke1qPovlHkyLhvbG-4](https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=2132-24029&t=ke1qPovlHkyLhvbG-4 ""smartCard-inline"")",Branding / Styling (orange),jacobwilliams122,,0,,0,0,0,0,2025-05-15T12:51:09.692Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,8,
+6848f4ee7f92399c3e289a76,Validate various store prices & regional taxes are calculating + working as expected,https://trello.com/c/pOsKlGF1/210-validate-various-store-prices-regional-taxes-are-calculating-working-as-expected,"## Context
+ 
+
+ This story is blocked on getting the multiple store menus and their tax rates data
+ 
+
+ ## Acceptance Criteria
+ 
+
+ - Tax rate is no longer hard-coded
+ 
+
+ ## Tech Hypothesis
+ 
+
+ ## Designs",Order & Checkout (green),jacobwilliams122,,0,,0,0,0,2,2025-08-26T18:57:22.444Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,FALSE,,FALSE,,,
+67c6558ec3bca87adaad2b42,Jacob's Findings & Tech Debt,https://trello.com/c/6cXhNFDQ/68-jacobs-findings-tech-debt,"- Routing to screens outside of the tabs flow (going to order after clearing your cart - CartEmpty.tsx) will render screen with no header
+ - Pipeline cleanup step did not have proper GH permissions (add change to next pr branch)
+ - Re-organize repo file structure",Deployment & Infrastructure (black_dark),jacobwilliams122,,0,,0,0,0,0,2025-03-06T02:29:20.045Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,3,
+67b4bda6ca960fca746afeb4,User can see previous order history,https://trello.com/c/kMTX1qpp/59-user-can-see-previous-order-history,"## Context
+ 
+
+ This story adds the “Orders” link to the hamburger menu + related screens.
+ 
+
+ ## Acceptance Criteria
+ 
+
+ - User can see list of their most recent orders, sorted with most recent on top
+ - If there are no orders, just show “No order history”
+ 
+
+ ## Tech Hypothesis
+ 
+
+ - this is all hitting BIGGBY api, not graphQL (even tho data might be available in there)
+ 
+
+ ## Designs
+ 
+
+ - [Recent orders](https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=516-7412&t=Rzmi1DbyHeje66lh-4 """"‌"")",Hamburger Menu (blue),jacobwilliams122,,0,,0,0,0,0,2025-03-20T14:44:39.743Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,3,4,
+67b4cd560d668be2f20d3eb4,User can see available rewards,https://trello.com/c/pLXaiozz/81-user-can-see-available-rewards,"## Context
+ 
+
+ We currently have a Rewards section, but it doesn’t yet have a section to display if the user has an available reward on their account or not.
+ 
+
+ ## Acceptance Criteria
+ 
+
+ - User can see a notice they’ve earned a reward if they have one on their account (they might have both a drink reward and a coffee beans rewards)
+  - For each reward on their account, show a box for that reward and vertically stack to them & scroll page vertically if necessary
+ - User sees a “no rewards yet” message if they do not have any available rewards.
+ 
+
+ ## Tech Hypothesis
+ 
+
+ - For testing purposes, [existingtest1@biggby.com](mailto:existingtest1@biggby.com """"‌"") and [existingtest3@biggby.com](mailto:existingtest3@biggby.com """"‌"") both have available rewards
+ 
+
+ ## Designs
+ 
+
+ Figma link: [https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=393-13651&t=T9PIu0vpI2LMmg2b-4](https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=393-13651&t=T9PIu0vpI2LMmg2b-4 ""smartCard-inline"")",Rewards (pink_light),jacobwilliams122,,0,,0,0,0,0,2025-04-03T13:23:31.003Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,2,5,
+67b60b1c8e0f48a0dddd9877,Jacob's EAS Notes,https://trello.com/c/D6M2Rz8o/54-jacobs-eas-notes,"General notes & TODOs
+ 
+
+ - ~~multiple bundle identifiers to have dev client and staging build on phone at same time~~
+ - ~~automate build/submit process in CI/CD~~
+ - ~~confirm OTA updates work with staging builds~~",Deployment & Infrastructure (black_dark),jacobwilliams122,,0,,0,0,0,0,2025-03-06T02:29:20.209Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,3,
+680077134606690e5d95d4b2,Update UI primitives Part 2,https://trello.com/c/SnlKhWk2/152-update-ui-primitives-part-2,"## Context
+ 
+
+ Update the following components to align with the Style System
+ 
+
+ - [Tabs](https://www.figma.com/design/lnWzoTYYvrsqCI5emhXPU7/Digital-Design-System?node-id=17-824&t=KojXcnqrQ19Hgbfy-11 """"‌"")
+ - [Separator ](https://www.figma.com/design/lnWzoTYYvrsqCI5emhXPU7/Digital-Design-System?node-id=17-2308&t=KojXcnqrQ19Hgbfy-11 """"‌"")(can skip wavy version if difficult)
+ - [Checkbox](https://www.figma.com/design/lnWzoTYYvrsqCI5emhXPU7/Digital-Design-System?node-id=17-751&t=KojXcnqrQ19Hgbfy-11 """"‌"")
+ - [Radio](https://www.figma.com/design/lnWzoTYYvrsqCI5emhXPU7/Digital-Design-System?node-id=17-818&p=f&t=KojXcnqrQ19Hgbfy-11 """"‌"")
+ - [Accordion](https://www.figma.com/design/lnWzoTYYvrsqCI5emhXPU7/Digital-Design-System?node-id=293-992&t=KojXcnqrQ19Hgbfy-11 """"‌"")
+ 
+
+ ## Acceptance Criteria
+ 
+
+ - Primitives are created or updated to align with the designs
+ - Pair with @ianculver2
+ 
+
+ ## Tech Hypothesis
+ 
+
+ ## Designs
+ 
+
+ [Design System](https://www.figma.com/design/lnWzoTYYvrsqCI5emhXPU7/Digital-Design-System?m=auto&t=xgZfNAyD1GGpYh4V-6 """"‌"")",Branding / Styling (orange),jacobwilliams122,,0,,0,0,0,0,2025-05-15T12:51:10.061Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,8,
+68236d03275018d66f8077db,Hamburger menu screens use new branding,https://trello.com/c/3X11ipV7/184-hamburger-menu-screens-use-new-branding,"## Context
+ 
+
+ ## Acceptance Criteria
+ 
+
+ - Ian sign off
+ 
+
+ ## Tech Hypothesis
+ 
+
+ ## Designs
+ 
+
+ Figma link: [https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=2603-8031&t=J75jW0N6Rcr9JTUm-4](https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=2603-8031&t=J75jW0N6Rcr9JTUm-4 """"‌"")",Branding / Styling (orange),jacobwilliams122,,0,,0,0,0,0,2025-05-29T14:57:25.063Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,9,
+689cfbe6ad7e2cc94f43309e,APP CRASH from Sign Up buttons,https://trello.com/c/x9niulxS/298-app-crash-from-sign-up-buttons,"## Summary
+ 
+
+ The app crashes tapping the Sign In button from the modal the guest user sees tapping on the Favorites icon from the cart.
+ 
+
+ **Priority / Severity Level: High**
+ 
+
+ ## Steps to Reproduce
+ 
+
+ See attached video and message
+ 
+
+ 1. As a guest, add anything to the cart
+ 2. Navigate to the cart
+ 3. Tap the Favorites heart icon
+ 4. Tap Sign In button on modal. App crashes.
+ 
+
+ ## Expected Behavior
+ 
+
+ Taken to the Sign In screen
+ 
+
+ ## Additional Context
+ 
+
+ - Device model & OS?
+ - Build ID + Update ID?
+ - User account id?
+ - Error messages?
+ - Screenshots?
+ 
+
+ ![image.png](https://trello.com/1/cards/689cfbe6ad7e2cc94f43309e/attachments/689cfca2fb54cff15c202408/download/image.png)",Order & Checkout (green),jacobwilliams122,,3,"https://trello.com/1/cards/689cfbe6ad7e2cc94f43309e/attachments/689cfca2fb54cff15c202408/download/image.png, https://trello.com/1/cards/689cfbe6ad7e2cc94f43309e/attachments/689cfd7370b2ffd31cee00b6/download/Signing_in_from_favorites_in_cart_crashes_app.mov, https://trello.com/1/cards/689cfbe6ad7e2cc94f43309e/attachments/689dcebe91f0c784395bf380/download/ScreenRecording_08-14-2025_07-49-37_1.MP4",0,0,0,0,2025-08-22T15:28:44.879Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,15,TRUE
+67b4cbcd1bec4d7e8b8165fe,User sees a Store Location bottom sheet within order flow,https://trello.com/c/8FgCQrKd/50-user-sees-a-store-location-bottom-sheet-within-order-flow,"## Context
+ 
+
+ Everything here exists as a screen right now; we’re changing it to be a bottom sheet.
+ 
+
+ Show bottom sheet instead of store location screen when:
+ 
+
+ - Trying to order without having selected a store
+ - Changing your store from the cart screen
+ 
+
+ ## Acceptance Criteria
+ 
+
+ - When user clicks “Order” on the bottom nav this sheet pops up to force a user select a store to order from
+ - When a user clicks “Change” on the Pickup location within the cart, this sheet pops up to ask them to select a store
+ - Once a user has picked a store, it’s kept in app state and a user is not prompted again to re-select a store unless an order has already been placed or they close/re-open the app
+ 
+
+ ## Tech Hypothesis
+ 
+
+ ‌
+ 
+
+ ## Designs
+ 
+
+ Figma link:
+ 
+
+ - [Change store location](https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=408-13162&t=2RIG2mE4ZjoJx0fz-4 """"‌"")",Store Selection (yellow),jacobwilliams122,,1,https://github.com/BIGGBY-COFFEE/biggby-mobile-app/pull/39,0,0,0,0,2025-03-06T02:29:20.277Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,2,3,
+67b4bdc41ce32a18bcf4ac23,User can access helpful links & signout,https://trello.com/c/NVmLOyC2/58-user-can-access-helpful-links-signout,"## Context
+ 
+
+ This story is for the external links & login/logout, not for the more in-depth sections of the hamburger menu.
+ 
+
+ ## Acceptance Criteria
+ 
+
+ - When user clicks “Help” they are taken to [**https://feedback.bi ggby.com/support/home**](https://feedback.xn--biggby-jk68a.com/support/home """"‌"")**,** opening externally in their device’s default browser
+ - When user clicks “Privacy Policy” they are taken to [https://www.biggby.com/privacy-policy/](https://www.biggby.com/privacy-policy/ """"‌"") opening externally in their device’s default browser
+ - When user clicks “Terms & Conditions” they are taken to [https://www.biggby.com/terms-of-service/](https://www.biggby.com/terms-of-service/ """"‌"") opening externally in their device’s default browser
+ - If a user is currently authenticated, they see “Sign out”
+  - If they click “Sign out” their account is signed out and they are returned to the app Home/Dashboard screen in unauthenticated mode
+ - If a user is NOT currently authenticated, they see “Sign in”
+  - If they click “Sign in” they are taken to the login screen
+ - Feel free to add the menu items to the other sections, but they’re not expected to work as part of this story.
+ 
+
+ **Not included**
+ 
+
+ - Profile
+ - Favorites
+ - Cards
+ - Orders
+ 
+
+ ## Tech Hypothesis
+ 
+
+ - this can just be a screen for now, doesn’t need to be a fancy component
+ - Look at React Navigation Drawer, and if it’s super easy just do that
+ 
+
+ ## Designs
+ 
+
+ Figma link: [https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=408-5743&t=Rzmi1DbyHeje66lh-4](https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=408-5743&t=Rzmi1DbyHeje66lh-4 ""smartCard-inline"")",Hamburger Menu (blue),jacobwilliams122,,0,,0,0,0,0,2025-03-20T14:44:39.915Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,2,4,
+67c74d7e88de4951ea1c534a,User can see indication of $0 balance BIGGBY card,https://trello.com/c/77aLfPDQ/77-user-can-see-indication-of-0-balance-biggby-card,"## Context
+ 
+
+ We want to make it really easy for users to notice their BIGGBY card is out of funds.
+ 
+
+ ## Acceptance Criteria
+ 
+
+ - If a BIGGBY card has a $0.00 balance, the image of the card should be gray instead of orange
+ 
+
+ ## Tech Hypothesis
+ 
+
+ ‌
+ 
+
+ ## Designs
+ 
+
+ Figma link: [https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=884-13376&t=1TTz5fjl7pIiSEKs-4](https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=884-13376&t=1TTz5fjl7pIiSEKs-4 ""smartCard-inline"")",Hamburger Menu (blue),jacobwilliams122,,0,,0,0,0,0,2025-04-03T13:23:31.173Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,2,5,
+6812cbc096ecb415cf42b370,Dialogs use new branding,https://trello.com/c/wRcD21Zx/165-dialogs-use-new-branding,"## Context
+ 
+
+ Set up base dialogs to use throughout the app. Slightly customizing the RNR version to center align all text, buttons, and icons (if used).
+ 
+
+ ## Acceptance Criteria
+ 
+
+ - Ian sign off
+ 
+
+ ## Tech Hypothesis
+ 
+
+ Referencing [RNR Dialog](https://rnr-showcase.vercel.app/dialog """"‌"")
+ 
+
+ ## Designs
+ 
+
+ - [Base Dialog](https://www.figma.com/design/lnWzoTYYvrsqCI5emhXPU7/Digital-Design-System?node-id=17-1817&t=0q0Zclb65LVql8LW-11 """"‌"")
+ - [Dialog w/ media](https://www.figma.com/design/lnWzoTYYvrsqCI5emhXPU7/Digital-Design-System?node-id=84-1237&t=0q0Zclb65LVql8LW-11 """"‌"")",Branding / Styling (orange),jacobwilliams122,,0,,0,0,0,0,2025-05-29T14:57:25.191Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,9,
+688a63c03693c62bfd800d95,User better understands that order has been successfully placed,https://trello.com/c/5xRUSouR/279-user-better-understands-that-order-has-been-successfully-placed,"## Context
+ 
+
+ We received the below beta user feedback:
+ 
+
+ > order complete modal doesn't feel complete - sort of gives off error notice vibe, a little underwhelming - needs to hit with an Order placed! - doesn't feel like the process has ended (still being able to see the ticket underneath creates confusion that I'm not finished)
+ 
+
+ Brianna/Jake theory is that because it’s a dialog, the user doesn’t interpret it with conclusive finality. They’d like us to change the design to be a full-screen instead of a dialog to see if that helps the users' understanding.
+ 
+
+ Brianna is also interested to know if there’s an option for haptic feedback when the confirmation screen appears. That’s a separate story: [https://trello.com/c/59FFVtyL/290-user-gets-haptic-feedback-when-order-is-placed](https://trello.com/c/59FFVtyL/290-user-gets-haptic-feedback-when-order-is-placed ""smartCard-inline"")
+ 
+
+ ## Acceptance Criteria
+ 
+
+ - Order confirmation dialog is updated to now be full-screen
+ - Update the text on the order confirmation screen to match the mockup
+ 
+
+ ## Tech Hypothesis
+ 
+
+ ## Designs
+ 
+
+ Figma link: [https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=4812-14701&t=FEjz7NwoN4l9e86o-4](https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=4812-14701&t=FEjz7NwoN4l9e86o-4 ""smartCard-inline"")",Order & Checkout (green),jacobwilliams122,,0,,0,0,0,0,2025-08-22T15:28:45.048Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,15,
+679a87b2fe380bf66988523c,User can access cart from app dashboard (and see # items),https://trello.com/c/lwu5JQxj/24-user-can-access-cart-from-app-dashboard-and-see-items,"## Context
+ 
+
+ If the user ends up back on the app home page before they’ve placed their order, they should have an easy way to get back to the cart, as well as an easy way to know how many items are currently in their cart.
+ 
+
+ This story assumes [https://trello.com/c/Z4CXToQC](https://trello.com/c/Z4CXToQC ""smartCard-inline"") is complete
+ 
+
+ ## Acceptance Criteria
+ 
+
+ - If items are in the cart, the shopping cart icon shows a notifications badge that reflects the number of items that are currently in the cart
+ - When the button is clicked, the user is taken to the View Cart page
+ - If no items are in the cart, the cart icon is disabled and users cannot click on it
+ 
+
+ ## Tech Hypothesis
+ 
+
+ ‌
+ 
+
+ ## Designs
+ 
+
+ - [Home screen w/ disabled cart icon](https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=197-3325&t=r0jBsrLmrkeEKrYN-11 """"‌"")
+ - [Cart icon w/ badge](https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=274-4080&t=r0jBsrLmrkeEKrYN-11 """"‌"")",Home / Dashboard (orange_light),jacobwilliams122,,0,,0,0,0,0,2025-02-20T01:01:14.618Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,1,2,
+67a4e2a919d7e7554d5d9444,Configure Github Actions to create testing builds,https://trello.com/c/54geCdql/40-configure-github-actions-to-create-testing-builds,"## Context
+ 
+
+ This story assumes we’ve heard from Sung Woo and team how to get access to the App Store and Play Store test build environments
+ 
+
+ ## Acceptance Criteria
+ 
+
+ - If there’s a change to the native code, push out a new build to TestFlight
+ - If there’s a change to the native code, push out a new build to Google Play Store / internal track within Console
+ 
+
+ ## Tech Hypothesis
+ 
+
+ ##",Deployment & Infrastructure (black_dark),jacobwilliams122,,1,https://github.com/BIGGBY-COFFEE/biggby-mobile-app/pull/35,0,0,0,0,2025-03-06T02:29:20.360Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,3,
+67c74d50d56e8600f96e8a63,User can add balance to BIGGBY card,https://trello.com/c/ksn4GUMk/87-user-can-add-balance-to-biggby-card,"## Context
+ 
+
+ This story assumes [https://trello.com/c/wc8RYvFu/56-user-can-manage-cards](https://trello.com/c/wc8RYvFu/56-user-can-manage-cards ""smartCard-inline"") is complete, and includes the ability to add balance to a card
+ 
+
+ ## Acceptance Criteria
+ 
+
+ - When user clicks “Add Balance” button on the Single card screen, take them to a new screen where we display card number, current balance and a calculation of what the new balance will be
+ - User can pick from specified dollar amounts, or choose custom to define their own. Specified dollar amounts include $5, $10, $20, $25
+  - When user chooses custom, they can type in the dollar amount they’d like to add to balance. This number must be an integer between 1 and XX.
+ - User can use either a credit card or mobile pay (Apple Pay / Google Pay) to process their payment
+ - If user picks Credit Card, display the necessary fields for the API to accept the payment
+ - If user picks the mobile pay option, they are told “Another step will appear to securely submit your payment information.”
+ - When the user clicks Save, the transaction is submitted and they are returned to the page they started from
+ 
+
+ ## Tech Hypothesis
+ 
+
+ - For the custom dollar amount, XX is whatever max value the API will accept … because in current app Renee managed to get an api error saying “Variable $amount got invalid value 10000000000000; int cannot represent non 32-bit signed integer value: 10000000000000” when she tried to add $10000000000000 to a gift card
+ - Credit card and mobile pay (Apple Pay / Google Pay) are handled via Stripe behind the scenes at BIGGBY
+ 
+
+ ## Designs
+ 
+
+ - [Add balance initial screen](https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=860-17831&t=AVZjsOAA94tU966E-4 """"‌"")
+ - [Single card mock](https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=510-7629&t=AVZjsOAA94tU966E-4 """"‌"")","Hamburger Menu (blue), New Staging Build (black_dark)",jacobwilliams122,,0,,0,0,0,0,2025-04-17T02:14:24.778Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,6,
+68811bb73edbd77e71948c90,User can view store menu even if not accepting online orders (just can't order),https://trello.com/c/FLZZzXoA/278-user-can-view-store-menu-even-if-not-accepting-online-orders-just-cant-order,"## Context
+ 
+
+ We got the following beta user feedback:
+ 
+
+ > can't view the menu when stores are closed 
+ > locations don't show up when stores aren't open
+ 
+
+ Jake & Brianna would like us to support viewing menu & products even while stores are closed, but prevent them from actually ordering. After chatting with Brianna, this also means our differences between viewing stores on Store tab & Order tab will disappear, so there’s likely some logic code [from past work](https://trello.com/c/KFowLk1q """"‌"") that can be simplified.
+ 
+
+ ## Acceptance Criteria
+ 
+
+ - All stores (regardless of whether they’re open, closed, or whether they’re accepting online orders or not) should now be selectable anytime a user sees the store selection bottomsheet
+ - When a user taps any store, they now see a button to “Select store”. When they tap that button, it takes them to their expected destination (based on what they had interacted with before we forced them to choose a store)
+  - This button replaces the “Order here” button that currently exists for stores that are accepting online orders
+ - If a user attempts to add a product to their cart while their store is currently closed or not accepting online orders, do not add the product to cart and instead show error dialog
+ 
+
+ ## Tech Hypothesis
+ 
+
+ ## Designs
+ 
+
+ Re-use the error dialog from [https://trello.com/c/MsacKQna](https://trello.com/c/MsacKQna ""smartCard-inline"")",Store Selection (yellow),jacobwilliams122,,0,,0,0,0,0,2025-08-22T15:28:45.135Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,15,
+67b4bb55597eed50334962dd,User can manage BIGGBY cards,https://trello.com/c/wc8RYvFu/56-user-can-manage-biggby-cards,"## Context
+ 
+
+ This adds a link for “Cards” under the hamburger menu + adds the related screens.
+ 
+
+ ## Acceptance Criteria
+ 
+
+ - When the user clicks “Cards” in the hamburger menu, they are taken to a screen where they can view all cards on the account
+ - When user clicks the “add a card” button, they are prompted to type in a BIGGBY card number
+  - After user submits the card number, the card is now added to the user’s account profile
+  - When they click Save, it returns them to the “Cards” screen where they can view all cards for their account
+ - When user clicks on a card from the Cards list, they see the (redacted) card number, the card balance, the related QR code
+ - Setting a card as the default works
+ 
+
+ **Not included**
+ 
+
+ - Adding balance to a card
+ - Displaying cards with $0 balance as gray color
+ 
+
+ ## Tech Hypothesis
+ 
+
+ ## Designs
+ 
+
+ Figma links:
+ 
+
+ - [See all cards](https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=510-6664&t=2RIG2mE4ZjoJx0fz-4 """"‌"")
+ - [Add a card](https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=510-7276&t=2RIG2mE4ZjoJx0fz-4 """"‌"")
+ - [View a card](https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=510-7629&t=2RIG2mE4ZjoJx0fz-4 """"‌"")",Hamburger Menu (blue),jacobwilliams122,,0,,0,0,0,0,2025-04-03T13:23:31.430Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,3,5,
+67db3794c039bf9f19fbed7b,User can sign up from hamburger menu,https://trello.com/c/V3m39nRI/89-user-can-sign-up-from-hamburger-menu,"## Context
+ 
+
+ Don’t spend too much time on this – refined designs might change some of how it works; simplest thing possible is fine
+ 
+
+ ## Acceptance Criteria
+ 
+
+ - When a user is not authenticated, their hamburger menu shows a “Sign up” link at the bottom
+ - When a user clicks “Sign up” they are taken to the in-app registration screen
+ 
+
+ ## Tech Hypothesis
+ 
+
+ ## Designs
+ 
+
+ ![image.png](https://trello.com/1/cards/67db3794c039bf9f19fbed7b/attachments/67eebd6382da6f7aef239762/download/image.png)",Guest Mode (yellow_dark),jacobwilliams122,,1,https://trello.com/1/cards/67db3794c039bf9f19fbed7b/attachments/67eebd6382da6f7aef239762/download/image.png,0,0,0,0,2025-04-17T02:14:24.859Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,6,
+67a0f5f4d814e8105227972f,Utilize test api(s) for staging build,https://trello.com/c/q96utC27/34-utilize-test-apis-for-staging-build,"## Context
+ 
+
+ Once we’re creating test builds of the app, we need APIs for the app to hit that aren’t just available with a dev environment
+ 
+
+ [graphql-preview.biggby.com](http://graphql-preview.biggby.com """"‌"")
+ [accounts-test.biggby.com](http://accounts-test.biggby.com """"‌"")
+ 
+
+ ## Acceptance Criteria
+ 
+
+ Support multiple envs
+ 
+
+ - `test` - eas update creates updates that use the above urls by default
+ - `dev` - local apis are used by default during development
+ 
+
+ ## Tech Hypothesis
+ 
+
+ It’d be nice if we could switch the env within the app from a secret menu.
+ We should be able to utilize eas env vars or profile configurations to set defaults.",Deployment & Infrastructure (black_dark),jacobwilliams122,,1,https://github.com/BIGGBY-COFFEE/biggby-mobile-app/pull/25,0,0,0,0,2025-02-20T01:01:14.786Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,2,2,
+67b89995a9939e0765c78aa9,Implement Refresh Token Flow,https://trello.com/c/cIhujmR1/62-implement-refresh-token-flow,"## Context
+ 
+
+ Currently, the app supports user login, but it does not handle refreshing the user's token. As a result, when a token expires, the user is treated as if they are logged in but is unable to see their profile/info. To improve the user experience we should implement token refreshing.
+ 
+
+ ## Acceptance Criteria
+ 
+
+ - The user can continue to see a their content as long as they have a valid refresh token.
+ - Upon app initialization, the app checks for the presence of tokens and confirms they are valid before sending the user to the home screen
+ - If a user’s refresh token expire or are revoked at any point, they should be redirect to the “Get Started” screen
+ - When new tokens are obtained, they are stored in Secure Storage
+ 
+
+ ### Out of Scope
+ 
+
+ - Displaying the a reason for why the user was directed to the “Get Started” screen.
+ 
+
+ ## Tech Hypothesis
+ 
+
+ Look to build a Biggby API client that can automatically detect an invalid token, attempt to refresh it, and reissue the original request.
+ 
+
+ Ensure this client is used in `services` that interact with the Biggby api",Authentication & Account Setup (red),jacobwilliams122,,0,,0,0,0,0,2025-03-20T14:44:40.118Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,4,
+67e5f58f17554c0a5f60fc8c,User sees signup CTA when they attempt to favorite,https://trello.com/c/vPMG9ott/114-user-sees-signup-cta-when-they-attempt-to-favorite,"## Context
+ 
+
+ Don’t focus much on the design layout or text – this will definitely change in future; this story is intended to be just functionality-focused.
+ 
+
+ ## Acceptance Criteria
+ 
+
+ - When a user who’s not logged in clicks the “favorite” icon on a store location, show a modal that contains marketing header and text about saving locations if you sign up
+  - “SAVE YOUR BIGGBY LOCATIONS! Quickly order from your favorite BIGGBY locations with a tap of a finger. To save your locations, sign up for a BIGGBY rewards membership today!”
+ - When a user who’s not logged in clicks the “favorite” icon on a product screen, show a modal that contains marketing header and text about saving products if you sign up
+  - “SAVE YOUR BIGGBY PRODUCTS! Quickly order your favorite BIGGBY food and drink items with a tap of a finger. To save your products, sign up for a BIGGBY rewards membership today!”
+ - If a user clicks “Sign up”, take them to the in-app registration screen
+ - If a user clicks “Log in”, take them to the login screen
+ - If the user clicks the modal “x” close out and return them to the screen they were on
+ 
+
+ ## Tech Hypothesis
+ 
+
+ ## Designs
+ 
+
+ Example layout
+ 
+
+ ![image.png](https://trello.com/1/cards/67e5f58f17554c0a5f60fc8c/attachments/67e5f59bcf34b7216c05fee4/download/image.png)",Guest Mode (yellow_dark),jacobwilliams122,,1,https://trello.com/1/cards/67e5f58f17554c0a5f60fc8c/attachments/67e5f59bcf34b7216c05fee4/download/image.png,0,0,0,0,2025-04-17T02:14:24.974Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,6,
+68811aaa04aba823261d2ca5,Investigate how new iOS UX impacts BIGGBY mobile app,https://trello.com/c/JjvCJZia/271-investigate-how-new-ios-ux-impacts-biggby-mobile-app,"## Context
+ 
+
+ We want to see how much of an impact it has, then decide whether we need to disable or not for when it releases this fall
+ 
+
+ ## Acceptance Criteria
+ 
+
+ ## Tech Hypothesis
+ 
+
+ ## Designs
+ 
+
+ Figma link:",Deployment & Infrastructure (black_dark),jacobwilliams122,,0,,0,0,0,0,2025-08-07T19:09:57.740Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,14,
+683a1d53a8d18f0312677dac,Product Menu shows all subcategory products,https://trello.com/c/o1rHyWQb/206-product-menu-shows-all-subcategory-products,"## Context
+ 
+
+ After drilling into the menu, a user should be able to see all of the products that exist in a subcategory.
+ 
+
+ Add a tab labeled “All” when a user is looking at a subcategory screen. Additionally, the “View All” link on the product menu tab should navigate a user to the subcategory menu “All” tab.
+ 
+
+ ## Acceptance Criteria
+ 
+
+ - User can click “View All” from the product menu and navigate to the “All” tab of the selected subcategory screen.
+ 
+
+ ## Tech Hypothesis
+ 
+
+ ‌
+ 
+
+ ## Designs
+ 
+
+ Figma link: [https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=2183-8398&t=OH5yxxOcgo9SeHoG-0](https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=2183-8398&t=OH5yxxOcgo9SeHoG-0 ""smartCard-inline"")",Product Menu (orange),jacobwilliams122,,0,,0,0,0,0,2025-06-26T02:02:01.685Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,11,
+68151cb425d4d1306d2321c1,User can access product nutrition and allergen information,https://trello.com/c/E9nEfpzz/195-user-can-access-product-nutrition-and-allergen-information,"## Context
+ 
+
+ Per Brianna, at launch there will be one bulk PDF that contains both nutrition and allergen info; the same PDF link will be true for all products.
+ 
+
+ ## Acceptance Criteria
+ 
+
+ - On the product screen, display a link “Nutrition & Allergen Info”
+ - When clicked, the link opens [https://biggby.com/nutrition](https://biggby.com/nutrition """"‌"") in the device’s default browser app
+ 
+
+ ## Tech Hypothesis
+ 
+
+ ## Designs
+ 
+
+ Figma link: [https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=2132-23834&t=PSyqp7My6igDHBqA-4](https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=2132-23834&t=PSyqp7My6igDHBqA-4 ""smartCard-inline"")",Product Menu (orange),jacobwilliams122,,1,https://trello.com/1/cards/68151cb425d4d1306d2321c1/attachments/6877b71e23195d415443c41a/download/BIGGBY_Menu_Label_Report_July_2025.pdf,0,0,0,2,2025-08-22T15:28:45.283Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,15,
+67db38121e85ae49353fa5ab,User does not see Scan tab if not signed in,https://trello.com/c/glKy2YB1/90-user-does-not-see-scan-tab-if-not-signed-in,"## Context
+ 
+
+ We currently show an empty Scan tab in the Guest Mode experience, but it’s been decided this would not be a valuable additional signup CTA location. However, Scan is still a tab in the authenticated user experience!
+ 
+
+ ## Acceptance Criteria
+ 
+
+ - When a user is not authenticated and opens the app, their core nav should only include Home, Order, Stores, Rewards
+ 
+
+ ## Tech Hypothesis
+ 
+
+ ## Designs",Guest Mode (yellow_dark),jacobwilliams122,,0,,0,0,0,0,2025-04-17T02:14:25.085Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,6,
+68007252ca310d63bdd51871,Update colors,https://trello.com/c/jZoBupN8/150-update-colors,"## Context
+ 
+
+ Use the rebrand colors within the app
+ 
+
+ ## Acceptance Criteria
+ 
+
+ - theming files are updated to align with the (relevant) rebrand colors
+  - tailwind.config.js
+  - global.css
+  - lib/constants.ts
+ - Pair with @ianculver2
+ 
+
+ ## Tech Hypothesis
+ 
+
+ - Cursor with Figma MCP tool faired very well in a quick test just passing the link to the [frame](https://www.figma.com/design/lnWzoTYYvrsqCI5emhXPU7/Digital-Design-System?node-id=26-1428&t=dWHXA1p2xmaHe2BM-4 """"‌"")
+ 
+
+ ## Designs
+ 
+
+ Figma link: [Colors](https://www.figma.com/design/lnWzoTYYvrsqCI5emhXPU7/Digital-Design-System?node-id=26-1428&t=dWHXA1p2xmaHe2BM-4 """"‌"")",Branding / Styling (orange),jacobwilliams122,,0,,0,0,0,0,2025-05-01T01:39:18.823Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,7,
+685ab687c3f1ca59eeed3964,User is warned when removing item from cart,https://trello.com/c/pxd5mdde/220-user-is-warned-when-removing-item-from-cart,"## Context
+ 
+
+ We currently have a warning dialog if a user taps the trash icon to clear their entire cart, but not when they tap the trash icon to remove an item. This story adds a warning dialog for removing an individual item; same interaction but with slightly different wording.
+ 
+
+ ## Acceptance Criteria
+ 
+
+ - When user taps the trash icon on an item in the cart, they see a warning dialog appear
+ - If the user clicks “Clear cart” the dialog disappears and the item is removed from the cart
+ - If the user clicks “Cancel” the dialog disappears and the item stays in the cart
+ 
+
+ ## Tech Hypothesis
+ 
+
+ ## Designs
+ 
+
+ [Figma link](https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=4357-12996&t=aPoJwyPY0tqmFqDd-4 """"‌"")",Order & Checkout (green),jacobwilliams122,,0,,0,0,0,0,2025-08-22T15:28:45.358Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,15,
+67979ecf2d248587158ccffe,Product screen UI,https://trello.com/c/j5jOejWF/19-product-screen-ui,"### Design
+ 
+
+ - [Product screen](https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=135-4555&t=DWYhdefTfmnl2IIe-11 """"‌"")
+ 
+
+ Build out a simple version of the product screen UI. This includes the view of the product and the slideout sheet for customization. The product will not yet be selectable from the menu interface, so just create another way to access it for now (maybe long press the store in the nav bar).
+ 
+
+ Use the placeholder images from the design. For the drink size selection, it would be nice if that were componetized for future change/use. The add button will not trigger any functionality, but the customize button should slide out the bottom sheet.
+ 
+
+ ~~If you want, this story can be split into two parts. One for the product screen and another for the slideout sheet.~~
+ 
+
+ ### Not included
+ 
+
+ - Anything for the customize drink slideout (that’s on [https://trello.com/c/72LKY7W8/17-customize-drink-slideout](https://trello.com/c/72LKY7W8/17-customize-drink-slideout ""smartCard-inline"") )",Product Menu (orange),"jacobwilliams122, jaredsurato2",,1,https://github.com/BIGGBY-COFFEE/biggby-mobile-app/pull/24,0,0,0,0,2025-02-20T01:01:14.920Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,2,
+67b4fce22f9f89b06a9f9d96,Staging app is available via Google Play Console,https://trello.com/c/nUYNy32k/47-staging-app-is-available-via-google-play-console,"We need to allow testers to access the latest changes within the app. Similar to what we did for the AppStore though, we need to make the app available for testing on the PlayStore now.
+ 
+
+ ## Acceptance Criteria
+ 
+
+ - A new android app exists in the Biggby Organization
+ - Staging build is available
+ 
+
+ ## Tech Hypothesis
+ 
+
+ - There is already an app for us to use in the Google Play Console, so we’ll use that
+ - Utilize [EAS build ](https://docs.expo.dev/build/building-on-ci/ """"‌"")and [EAS Submit ](https://docs.expo.dev/submit/introduction/ """"‌"")to submit builds to the store for testing",Deployment & Infrastructure (black_dark),jacobwilliams122,,1,https://github.com/BIGGBY-COFFEE/biggby-mobile-app/pull/33,0,0,0,0,2025-03-06T02:29:20.521Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,3,
+67b880863c6a2996520faf9d,Create Reusable Page Header,https://trello.com/c/ja6RY2df/61-create-reusable-page-header,"## Context
+ 
+
+ Currently we create a new header for each page. The common header types are two-child and three-child headers. The two-child header typically contains the back button and a centered header. The three-child header typically contains the back button, a centered header, and an icon (trash can for the cart page). We want to create a new header component that can be reused when a page is created that needs a header.
+ 
+
+ ## Acceptance Criteria
+ 
+
+ a new header component exists that matches existing styling guidelines and functionality.
+ 
+
+ ## Tech Hypothesis
+ 
+
+ ‌
+ 
+
+ ## Designs
+ 
+
+ Figma link:",Branding / Styling (orange),jacobwilliams122,,0,,0,0,0,0,2025-03-20T14:44:40.251Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,4,
+68006d10d589231293f2410f,Update font and Text Primitive,https://trello.com/c/SbJtJra1/149-update-font-and-text-primitive,"## Context
+ 
+
+ Replace `CeraRoundPro` with `Poppins` and `Recoleta` which will be used for the rebrand. Update the Text and Typography UI primitives to allow the new fonts to be used throughout the app.
+ 
+
+ [Fonts are stored in gDrive](https://drive.google.com/drive/folders/15HNiIy0b45r3yYuroXjdhkkCmfdSZIYP?usp=drive_link """"‌"")
+ 
+
+ ## Acceptance Criteria
+ 
+
+ - Load the new fonts
+ - Update the Text and Typography UI primitives
+ - Display the fonts in the dev screen
+ - Pair with @ianculver2 on setting up type styles
+ 
+
+ ## Tech Hypothesis
+ 
+
+ ## Designs
+ 
+
+ [Typography](https://www.figma.com/design/lnWzoTYYvrsqCI5emhXPU7/Digital-Design-System?node-id=26-1413&t=dWHXA1p2xmaHe2BM-0 """"‌"")","Branding / Styling (orange), New Staging Build (black_dark)",jacobwilliams122,,0,,0,0,0,0,2025-05-01T01:39:18.924Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,7,
+679a916b32c2a5ad2c26fcc5,Github configuration,https://trello.com/c/7Wjl1OWs/28-github-configuration,"This story is for creating PR templates and any other branch/access stuff
+ 
+
+ Notes from our team norms in this area:
+ 
+
+ > - **PRs**
+ >  - **Who should review?** All devs assigned, one approved needed before merge
+ >  - **PR templates**
+ >  - **What should be included? Description? Screenshots?** - Description, testing instructions, link the ticket/card, make sure it works before you ask for review (all pipeline checks should pass), screenshot if needed
+ >  - **PR apps?** - ""Open in expo, simulator, etc"". On any PR, you can have an environment to look at for it
+ >  - **Trying it out on iOS and Android**",Deployment & Infrastructure (black_dark),jacobwilliams122,,1,https://github.com/BIGGBY-COFFEE/biggby-mobile-app/pull/20,0,0,0,1,2025-02-10T16:17:06.732Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,1,
+67aa39c0e9a2281087d4a2bf,Staging app is available via TestFlight,https://trello.com/c/5eZ4Tpgn/41-staging-app-is-available-via-testflight,"We need to allow testers to access the latest changes within the app. This story focuses on the AppStore though lots of the work will apply to the PlayStore as well
+ 
+
+ ## Acceptance Criteria
+ 
+
+ - A new iOS app exists in the Biggby Organization
+ - Staging build (dev client) is available in Test Flight
+ - Upon merging to main, determine if the app needs a new native build, if so, build and submit
+ 
+
+ ## Tech Hypothesis
+ 
+
+ - Create a new app in AppStore Connect
+  [https://appstoreconnect.apple.com/apps](https://appstoreconnect.apple.com/apps """"‌"")
+ - Utilize [EAS build ](https://docs.expo.dev/build/building-on-ci/ """"‌"")to automatically create a staging build when the app’s fingerprint changes. See here [https://docs.expo.dev/build/automate-submissions/](https://docs.expo.dev/build/automate-submissions/ ""smartCard-inline"") and here [https://docs.expo.dev/build-reference/app-versions/#recommended-workflow](https://docs.expo.dev/build-reference/app-versions/#recommended-workflow ""smartCard-inline"") .
+ - Utilize [EAS Submit ](https://docs.expo.dev/submit/introduction/ """"‌"")to submit builds to the store for testing",Deployment & Infrastructure (black_dark),jacobwilliams122,,1,https://github.com/BIGGBY-COFFEE/biggby-mobile-app/pull/33,0,0,0,0,2025-03-06T02:29:20.612Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,3,
+67bde60f31a9e0a8377b6f2c,Set app to light mode by default,https://trello.com/c/C1RHUQuP/66-set-app-to-light-mode-by-default,"## Context
+ 
+
+ The application currently sets its theme based on the user’s theme at first run (it sets the value into storage). For now, we’d like it to always use light mode.
+ 
+
+ ## Acceptance Criteria
+ 
+
+ - The app defaults to light mode regardless of the user’s mode
+ 
+
+ ## Tech Hypothesis
+ 
+
+ See `useInitializeApp`. We could remove the behavior entirely or always set light mode into storage. Setting light mode into storage is likely more flexible long term. In order to make the change work for people who have the app installed, change the storage key (also make it constant)
+ 
+
+ aka disable dark mode",Branding / Styling (orange),jacobwilliams122,,0,,0,0,0,0,2025-03-20T14:44:40.337Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,4,
+67c9ede875a8bc062a88e939,User can checkout with credit card or mobile pay,https://trello.com/c/PhFkKKR3/95-user-can-checkout-with-credit-card-or-mobile-pay,"## Context
+ 
+
+ Assumes [https://trello.com/c/3mszeRby/94-user-can-see-checkout-bottomsheet-w-order-total](https://trello.com/c/3mszeRby/94-user-can-see-checkout-bottomsheet-w-order-total ""smartCard-inline"") is completed
+ 
+
+ Don’t focus much on the UI design – Layout may be changing in refined designs. This story is intended to be ensure we can get the functionality to work.
+ 
+
+ We’re going to be using Stripe-provided payment sheet for this, rather than a custom design.
+ 
+
+ ## Acceptance Criteria
+ 
+
+ - When the user looks at the bottom of the cart screen, they now see the option to pay with a credit card or mobile pay in the Payment Method section
+ - When the user selects the “Credit Card or Mobile Pay” button, they see the Stripe bottomsheet appear
+  - If the user is on an iOS device that supports Mobile Pay, they see “Apple Pay” button available
+  - If the user is on an Android device that supports Mobile Pay, they see a “Google Pay” button available
+  - _Note: Renee hasn’t been able to reproduce this in production app, so if you can’t get it to work, we should split Android mobile pay into separate story_
+  - When the user selects the mobile payment button, they see a notice that says “Another step will appear to securely submit your payment information” and the “Pay” button enables for the user.
+ - Once all the required fields have been filled out, the user can choose to place the order
+ - When user places the order, the order is submitted to BIGGBY
+ 
+
+ **Not included**
+ 
+
+ - Any BIGGBY card functionality
+ 
+
+ ## Tech Hypothesis
+ 
+
+ Handle stripe payment result: [https://docs.stripe.com/payments/mobile/finalize-payments-on-the-server?platform=react-native&type=payment#set-up-return-url](https://docs.stripe.com/payments/mobile/finalize-payments-on-the-server?platform=react-native&type=payment#set-up-return-url """"‌"")
+ 
+
+ ## Designs
+ 
+
+ - [Cart view](https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=1910-30866&t=Ni4ZqcKPknHljXhG-4 """"‌"")
+ - [Selected stripe-type payment](https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=1928-31076&t=Ni4ZqcKPknHljXhG-4 """"‌"")",Order & Checkout (green),jacobwilliams122,,0,,0,0,0,0,2025-05-15T12:51:10.727Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,3,8,
+68006d3cecca45b35be7d18b,Update UI primitives Part 1,https://trello.com/c/xR3A8qkK/151-update-ui-primitives-part-1,"## Context
+ 
+
+ Update the following components to align with the Style System
+ 
+
+ - [Alert](https://www.figma.com/design/lnWzoTYYvrsqCI5emhXPU7/Digital-Design-System?node-id=17-146&t=2UH6CqOP0iPE9RU9-11 """"‌"")
+ - [Badge](https://www.figma.com/design/lnWzoTYYvrsqCI5emhXPU7/Digital-Design-System?node-id=17-233 """"‌"")
+ - [Buttons](https://www.figma.com/design/lnWzoTYYvrsqCI5emhXPU7/Digital-Design-System?node-id=10-1113&t=2UH6CqOP0iPE9RU9-11 """"‌"")
+ - [Input / Text area](https://www.figma.com/design/lnWzoTYYvrsqCI5emhXPU7/Digital-Design-System?node-id=17-260&t=2UH6CqOP0iPE9RU9-11 """"‌"")
+ 
+
+ ## Acceptance Criteria
+ 
+
+ - The primitives above align with the designs.
+ - Pair with @ianculver2
+ 
+
+ ## Tech Hypothesis",Branding / Styling (orange),jacobwilliams122,,0,,0,0,0,0,2025-05-01T15:08:57.617Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,7,
+67db3afb4e5f9401715ec30e,User sees order confirmation after submitting order,https://trello.com/c/5sqQgzdF/104-user-sees-order-confirmation-after-submitting-order,"## Context
+ 
+
+ This card assumes [https://trello.com/c/U7gEqTTv/75-user-can-see-details-of-a-previous-order](https://trello.com/c/U7gEqTTv/75-user-can-see-details-of-a-previous-order ""smartCard-inline"") , [https://trello.com/c/3mszeRby/94-user-can-see-checkout-bottomsheet-w-order-total](https://trello.com/c/3mszeRby/94-user-can-see-checkout-bottomsheet-w-order-total ""smartCard-inline"") and at least one payment method story are complete.
+ 
+
+ ## Acceptance Criteria
+ 
+
+ - When a user successfully submits an order, the user sees a modal that confirms their order was placed
+  - If user clicks “View order” it takes them to the order details screen for the order that was just placed
+  - If user clicks “Got it, thanks” or clicks the modal’s “x” button, they are taken to the home screen
+ 
+
+ ## Tech Hypothesis
+ 
+
+ ## Designs
+ 
+
+ - [Purchase confirmation screen](https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=532-15432&t=RKckm35arStQG8mf-4 """"‌"")",Order & Checkout (green),jacobwilliams122,,0,,0,0,0,0,2025-05-15T12:51:10.810Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,2,8,
+68279b0fdc59e76f29db48e4,High res app icon,https://trello.com/c/9NYbP2ZY/189-high-res-app-icon,"## Context
+ 
+
+ ## Acceptance Criteria
+ 
+
+ ## Tech Hypothesis
+ 
+
+ ## Designs
+ 
+
+ _**(See attached PNGs)**_
+ 
+
+ Figma links for reference:
+ 
+
+ - [iOS](https://www.figma.com/design/lnWzoTYYvrsqCI5emhXPU7/Digital-Design-System?node-id=557-559&t=4RwAh4NA3Bo8BY6P-11 """"‌"")
+ - [Android](https://www.figma.com/design/lnWzoTYYvrsqCI5emhXPU7/Digital-Design-System?node-id=557-2551&t=4RwAh4NA3Bo8BY6P-11 """"‌"")","Branding / Styling (orange), New Staging Build (black_dark)","jacobwilliams122, jaredsurato2",,2,"https://trello.com/1/cards/68279b0fdc59e76f29db48e4/attachments/683f0a00de918e534dc5b146/download/BIGGBY_App_Icon_%E2%80%93_Android_%E2%80%93_512x512.png, https://trello.com/1/cards/68279b0fdc59e76f29db48e4/attachments/683f0a01715bc9acc76ca89b/download/BIGGBY_App_Icon_%E2%80%93_iOS_%E2%80%93_1024x1024.png",0,0,0,1,2025-06-12T13:13:19.611Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,10,
+679a4192e28d71dc3f67420f,Set Up Prettier/ESLint,https://trello.com/c/xLdC3sUT/23-set-up-prettier-eslint,"Biome has been an interesting tool, but falls short in some places. We’re going to move back towards the standard combo of prettier & es-lint.
+ 
+
+ Configure these tools in the repo to replace Biome and make sure the team is able to properly get set up.",Deployment & Infrastructure (black_dark),jacobwilliams122,,1,https://github.com/BIGGBY-COFFEE/biggby-mobile-app/pull/17,0,0,0,0,2025-02-10T16:17:00.019Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,1,
+6838c8b65b09eb0c6cc32217,Card management UX tweaks,https://trello.com/c/MpSf4WZz/199-card-management-ux-tweaks,"## Context
+ 
+
+ ## Acceptance Criteria
+ 
+
+ - Add a Card should have “Add Card” button label, not “Save”
+ - When adding balance, the full card number should display instead of masking with “xxxxxxxx”
+ - Cards with $0 balance should match mockups (missing displayed balance and card number styling doesn’t match)
+ 
+
+ ## Tech Hypothesis
+ 
+
+ - You can see a card with $0 balance on [mailto:existingtest4@biggby.com](mailto:existingtest4@biggby.com """"‌"") account
+ 
+
+ ## Designs
+ 
+
+ Figma links:
+ 
+
+ - [$0 balance mock](https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=2585-36900&t=6JOakoxUfCittJ81-4 """"‌"")
+ - [Add a card](https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=2585-36926&t=6JOakoxUfCittJ81-4 """"‌"")
+ - [Add funds](https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=2592-26700&t=6JOakoxUfCittJ81-4 """"‌"")",Hamburger Menu (blue),jacobwilliams122,,0,,0,0,0,0,2025-06-26T02:02:02.220Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,11,
+6797a76e11ac4beeab63b15b,Create Biggby Dev Client,https://trello.com/c/hQbxJhmk/22-create-biggby-dev-client,"Expo Go is great but it’s intended for simple apps and projects in their early stages. Certain project requirements push dev teams to use development clients. On this project, those requirements are custom fonts and deep linking(probably).
+ 
+
+ ‌
+ 
+
+ [https://docs.expo.dev/develop/development-builds/introduction/](https://docs.expo.dev/develop/development-builds/introduction/ ""smartCard-inline"")
+ 
+
+ [https://www.youtube.com/watch?v=7J8LRpja9_o](https://www.youtube.com/watch?v=7J8LRpja9_o ""smartCard-embed"")",Deployment & Infrastructure (black_dark),jacobwilliams122,,1,https://github.com/BIGGBY-COFFEE/biggby-mobile-app/pull/14,0,0,0,0,2025-02-10T16:16:56.018Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,1,
+678956dd6b6772809333081e,Add storybook or a secret component preview screen,https://trello.com/c/6syijop1/5-add-storybook-or-a-secret-component-preview-screen,"Given that Storybook can be a pain, consider adding a simple component preview screen that is accessible via a long press / multi tap of a button / image.
+ 
+
+ > **Old Description:**
+ >
+ > Storybook will be a convenient way to preview and get feedback on UI elements and screens - especially those that are not ready to be included within the app yet.
+ >
+ > [https://github.com/storybookjs/react-native](https://github.com/storybookjs/react-native ""smartCard-inline"")
+ 
+
+ ### Acceptance Criteria
+ 
+
+ - Developers and testers can preview components with the app",Deployment & Infrastructure (black_dark),jacobwilliams122,,1,https://github.com/BIGGBY-COFFEE/biggby-mobile-app/pull/11,0,0,0,0,2025-02-10T16:16:52.075Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,1,
+678aa593a382dfa39116e4e3,Add splash screen,https://trello.com/c/0ZPJwsFJ/8-add-splash-screen,"_Punch to Biggby Coffee Mobile App Dev >> Authentication & Account Setup_
+ 
+
+ ---
+ 
+
+ ## Description
+ 
+
+ Build out splash screen based on current mockup (linked below).
+ 
+
+ ## Acceptance Criteria
+ 
+
+ - Has background image (attached below)
+ - Has BIGGBY logo (attached below)
+ - Get started button
+ - Opens Login screen
+ 
+
+ ## Designs
+ 
+
+ [https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=53-3614&t=wRm3o243NltbEmGd-11](https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=53-3614&t=wRm3o243NltbEmGd-11 ""smartCard-inline"")
+ 
+
+ ![image.png](https://trello.com/1/cards/678aa593a382dfa39116e4e3/attachments/678aa7b8f54d6ce6dca5f79c/download/image.png)",Authentication & Account Setup (red),jacobwilliams122,,4,"https://trello.com/1/cards/678aa593a382dfa39116e4e3/attachments/678aa7b8f54d6ce6dca5f79c/download/image.png, https://trello.com/1/cards/678aa593a382dfa39116e4e3/attachments/678aa82911908dfad1edf1f4/download/biggby-splash.png, https://trello.com/1/cards/678aa593a382dfa39116e4e3/attachments/678aa8d897633059ba77fc60/download/biggby-logo.png, https://github.com/BIGGBY-COFFEE/biggby-mobile-app/pull/10",0,0,0,0,2025-02-10T16:16:50.131Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,0,
+686f0c73049912ea15ae3371,Pickup method should only display drive-thru for stores with drive-thru available,https://trello.com/c/qNDBXGMU/248-pickup-method-should-only-display-drive-thru-for-stores-with-drive-thru-available,"## Summary
+ 
+
+ Reported by Ian from Bug Bash (and later Renee): Displays drivethru as option – don't think 2546 Jolly Rd, Lansing has that (See screenshot verifying that location does NOT show drive-thru). Platt Rd also does not have a drivethru, but it shows “Drive Thru” as an option in checkout
+ 
+
+ **Priority / Severity Level: High**
+ 
+
+ ## Steps to Reproduce
+ 
+
+ - Search for zip code “48910” (East Lansing) then display information for the 2546 Jolly Rd store, note the listed pickup options (as of 7/20, shows only “In Store”)
+ - Tap “Order Here” for Jolly Rd, add an item to cart, then advance to Pickup screen in Checkout
+ - Note the listed pickup options include drivethru, even though drivethru is not available at this location
+ 
+
+ ## Expected Behavior
+ 
+
+ Drive-thru icon only shows if the store has a drive-thru
+ 
+
+ ## Additional Context
+ 
+
+ - Device model & OS?
+ - Build ID + Update ID? 0.1.0 (33)
+ - User account id?
+ - Light/dark Mode?
+ - Error messages?
+ - Screenshots?
+ 
+
+ ‌
+ 
+
+ ![image.png](https://trello.com/1/cards/686f0c73049912ea15ae3371/attachments/686f0d4bff257ca915fc4b5f/download/image.png)",Store Selection (yellow),jacobwilliams122,,1,https://trello.com/1/cards/686f0c73049912ea15ae3371/attachments/686f0d4bff257ca915fc4b5f/download/image.png,0,0,0,1,2025-08-07T19:09:58.126Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,14,TRUE
+6839bfa5c140a9918ec51d47,Copywriter content changes,https://trello.com/c/pTQZMgy9/202-copywriter-content-changes,"## Context
+ 
+
+ ## Acceptance Criteria
+ 
+
+ All screens listed below in checklist have updated text.
+ 
+
+ ## Tech Hypothesis
+ 
+
+ ## Designs
+ 
+
+ Figma links:
+ 
+
+ - [Guest mode: Rewards screen has updated text](https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=3149-12500&t=7b8R6yeP3E5s1L9h-4 """"‌"")
+ - [Auth mode: Rewards screen (with available rewards) has updated text](https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=2132-23924&t=uQwb9OGEmPtS34vX-4 """"‌"")
+ - [Auth mode: Rewards screen (with no rewards) has updated text](https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=2803-31321&t=uQwb9OGEmPtS34vX-4 """"‌"")
+ - [Checkout: Step 1](https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=2260-14123&t=7b8R6yeP3E5s1L9h-4 """"‌"")
+ - [Checkout: Step 2](https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=2411-6717&t=7b8R6yeP3E5s1L9h-4 """"‌"")
+ - [Checkout: Step 3](https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=2490-35098&t=7b8R6yeP3E5s1L9h-4 """"‌"")",Branding / Styling (orange),jacobwilliams122,,0,,6,6,0,1,2025-08-07T19:09:58.219Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,14,
+682f72502c031b71b1c94487,All references to BIGGBY brand need the ® symbol after it,https://trello.com/c/ybhTYq01/191-all-references-to-biggby-brand-need-the-symbol-after-it,"## Context
+ 
+
+ In some places in the app, we show “BIGGBY” without the ® symbol after it. Brianna asked that we correct this.
+ 
+
+ ## Acceptance Criteria
+ 
+
+ - All places in the app where we reference “BIGGBY” should now read “BIGGBY®”
+ 
+
+ ## Tech Hypothesis
+ 
+
+ Renee is hoping a find + replace will help with this; let her know if you need an explicit list of where in the app it appears
+ 
+
+ ## Designs
+ 
+
+ Figma link:",Branding / Styling (orange),jacobwilliams122,,0,,0,0,0,1,2025-08-07T19:09:58.314Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,14,
+678943f9ae7c63a3964b55c5,Jacob Onboarding,https://trello.com/c/rnND9j6X/4-jacob-onboarding,"_Punch to Biggby Coffee Mobile App Dev > Onboarding_
+ 
+
+ ---",Onboarding (purple_light),jacobwilliams122,,0,,9,9,0,0,2025-02-10T16:14:55.942Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,0,
+687cefbb7955516089ca2a28,Investigate why refresh auth token doesn't seem to be working,https://trello.com/c/QTGNXgX5/267-investigate-why-refresh-auth-token-doesnt-seem-to-be-working,"## Summary
+ 
+
+ Sung Woo, Jacob and Renee have all experienced being logged out in the beta app at a much more frequent rate than what was happening in dev/staging.
+ 
+
+ ## Expected behavior
+ 
+
+ The “remember login” behavior that was true in dev/staging as part of [https://trello.com/c/cIhujmR1](https://trello.com/c/cIhujmR1 ""smartCard-inline"") should still be true in beta/prod.",Authentication & Account Setup (red),jacobwilliams122,,0,,0,0,0,0,2025-08-07T19:09:58.557Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,14,TRUE
+686568feff15e28fa800f729,Upgrade application dependencies,https://trello.com/c/6XL1B7Ii/223-upgrade-application-dependencies,"## Context
+ 
+
+ - Update to Expo 53 SDK
+ - include fix for initial routing/app landing
+ 
+
+ ## Acceptance Criteria
+ 
+
+ - resolve breaking changes
+ - leverage new functionality and remove code that we had to write workarounds for
+ - resolve deprecations and other warnings/errors
+ 
+
+ ## Tech Hypothesis
+ 
+
+ ## Designs
+ 
+
+ Figma link:",Deployment & Infrastructure (black_dark),jacobwilliams122,,0,,0,0,0,0,2025-07-18T16:24:13.326Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,12,
+67c9edda961a965c0f67562a,User can checkout with BIGGBY card,https://trello.com/c/q55JCKz8/96-user-can-checkout-with-biggby-card,"## Context
+ 
+
+ Assumes [https://trello.com/c/3mszeRby/94-user-can-see-checkout-bottomsheet-w-order-total](https://trello.com/c/3mszeRby/94-user-can-see-checkout-bottomsheet-w-order-total ""smartCard-inline"") is completed.
+ 
+
+ Don’t focus much on the UI design – Layout may be changing in refined designs. This story is intended to be ensure we can get the functionality to work.
+ 
+
+ ## Acceptance Criteria
+ 
+
+ - When the user looks at the bottom of the cart screen, they now see the option to pay with a BIGGBY gift card in the Payment Method section
+ - When the user clicks the “BIGGBY Card” button, they see a bottomsheet pop up
+  - The user’s default card is shown at the top and is the initially selected default payment
+  - If a user has multiple BIGGBY cards associated with their account, the other BIGGBY cards are available to select below the default card
+  - Each card’s balance displays in a parenthetical next to the card number in the dropdown
+ - If more than 4 BIGGBY cards associated with the account, “Show all cards” becomes an option and when clicked, the full list of available BIGGBY cards display on this screen and are selectable
+ - If no BIGGBY cards exist on the account, show a message that says “No BIGGBY cards available”
+ - Clicking the “X” on the bottomsheet returns the user to the cart screen
+ - Once the user has selected a BIGGBY card with a balance that is more than the order total, the “Place Order” button enables for the user
+ - When the user clicks “Place Order” the order is submitted to BIGGBY
+ 
+
+ **Not included**
+ 
+
+ - Any credit card functionality
+ - Any mobile pay functionality
+ - Any ability to add to BIGGBY card balance from this screen
+ 
+
+ ## Tech Hypothesis
+ 
+
+ - According to Sung Woo, all digital accounts will have at least one BIGGBY card associated with it
+ 
+
+ ## Designs
+ 
+
+ - [Cart view](https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=1910-30866&t=Ni4ZqcKPknHljXhG-4 """"‌"")
+ - [Gift Card](https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=1910-30707&t=Ni4ZqcKPknHljXhG-4 """"‌"")","New Staging Build (black_dark), Order & Checkout (green)",jacobwilliams122,,0,,0,0,0,0,2025-05-01T01:39:19.208Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,5,7,
+67e1b3e9eceb47bdbe32eef4,Non-auth User cannot checkout with BIGGBY card,https://trello.com/c/BpR5sSty/109-non-auth-user-cannot-checkout-with-biggby-card,"## Context
+ 
+
+ This story assumes [https://trello.com/c/q55JCKz8/96-user-can-checkout-with-biggby-card](https://trello.com/c/q55JCKz8/96-user-can-checkout-with-biggby-card ""smartCard-inline"") is complete
+ 
+
+ Because BIGGBY cards are associated with accounts, users who are not logged in don’t get to use this functionality.
+ 
+
+ ## Acceptance Criteria
+ 
+
+ - When a user is not logged in and goes to checkout, they can only use Credit Card (and Mobile pay, if available) – BIGGBY card is not available
+ 
+
+ ## Tech Hypothesis
+ 
+
+ ## Designs
+ 
+
+ The Red X’d parts should not show to users who aren’t logged in
+ 
+
+ ![image.png](https://trello.com/1/cards/67e1b3e9eceb47bdbe32eef4/attachments/67e5f2e0978ff84b2bc96917/download/image.png)",Guest Mode (yellow_dark),jacobwilliams122,,1,https://trello.com/1/cards/67e1b3e9eceb47bdbe32eef4/attachments/67e5f2e0978ff84b2bc96917/download/image.png,0,0,0,0,2025-05-01T01:39:19.294Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,7,
+6810f980144576efd0079d55,User can review order in three steps before checking out,https://trello.com/c/RcUQa2zJ/162-user-can-review-order-in-three-steps-before-checking-out,"## Context
+ 
+
+ To simplify the amount of information exposed at one time to the user in the cart, we’re breaking the current experience up into three steps:
+ 
+
+ ## Acceptance Criteria
+ 
+
+ - The user can see three sections for the checkout process: Cart, Pickup, Payment.
+ - Across all three sections, the user can see their subtotal, tax, and order total
+ - In section 1 (Cart), the user sees all items currently in cart, their prices, and the size (or bagel type) modifier summary. They can also choose to modify the item, favorite the product, discard the item, or change the quantity
+  - If the current quantity is 1, they cannot lower it to 0
+ - In section 2 (Pickup), the user sees and can modify the pickup location, pickup person and pickup method
+ - In section 3 (Payment), the user can choose between available payment methods. When they click the “Checkout” button it opens the expected payment bottomsheet.
+  - On the Payment checkout screen, only show the total account balance instead of the individual cards
+ - When user clicks “x” in top left, it closes the cart and takes the user to the home screen
+ - User can click the step number to jump to that stage in checkout process
+ 
+
+ **Not included**
+ 
+
+ - Accordion-style cards displaying modifiers for product items in cart
+ - Suggested add-ons for items in cart
+ 
+
+ ## Tech Hypothesis
+ 
+
+ ## Designs
+ 
+
+ Figma link: [https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=2321-25954&t=Ee2aAQR5cAqKpq7A-4](https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=2321-25954&t=Ee2aAQR5cAqKpq7A-4 ""smartCard-inline"")",Order & Checkout (green),jacobwilliams122,,1,https://trello.com/1/cards/6810f980144576efd0079d55/attachments/68484de0927d17d53f863570/download/Card.svg,0,0,0,0,2025-06-26T02:02:02.318Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,11,
+682604f22fa33b8c6ce9403e,Product menu screens use new branding,https://trello.com/c/qG2oetYT/188-product-menu-screens-use-new-branding,"## Context
+ 
+
+ ## Acceptance Criteria
+ 
+
+ - Ian sign off
+ 
+
+ **Not included**
+ 
+
+ - Product screen
+ 
+
+ ## Tech Hypothesis
+ 
+
+ ## Designs
+ 
+
+ Figma link: [https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=2199-11798&t=ozbNRnxuMNvRJJV9-4](https://www.figma.com/design/3X0u1w0uv66vgc4Ih7awuW/Mobile-App-Dev?node-id=2199-11798&t=ozbNRnxuMNvRJJV9-4 ""smartCard-inline"")",Branding / Styling (orange),jacobwilliams122,,0,,0,0,0,0,2025-06-26T02:02:02.418Z,678e875716527a9668891679,Done,677ef01803e9bf50a131644a,App 2.0 x AO,TRUE,,FALSE,,11,
