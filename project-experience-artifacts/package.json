@@ -6,6 +6,7 @@
 	"private": true,
 	"scripts": {
 		"generateProjectSummary": "bun run generateProjectSummary.ts",
+		"generateBio": "bun run generateBio.ts",
 		"configure-ai": "bun run scripts/configureAI.ts",
 		"type-check": "tsc --noEmit"
 	},

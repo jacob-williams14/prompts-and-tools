@@ -233,6 +233,38 @@ async function processBacklog(
 async function main() {
 	const args = process.argv.slice(2);
 
+	// Handle process signals gracefully
+	process.on("SIGINT", () => {
+		console.log("\n👋 Operation cancelled by user");
+		process.exit(0);
+	});
+
+	if (args.includes("--help") || args.includes("-h") || args[0] === "help") {
+		console.log("📊 Backlog Processing Tool");
+		console.log("");
+		console.log(
+			"Usage: bun run tools/processBacklog.ts <backlog-file.csv> <developer-name> <project-name> [options]"
+		);
+		console.log("");
+		console.log("Options:");
+		console.log("  --email <email>      Developer email for matching");
+		console.log("  --username <user>    Developer username for matching");
+		console.log("");
+		console.log("Description:");
+		console.log(
+			"  Processes CSV backlog files to extract developer-specific contributions"
+		);
+		console.log("");
+		console.log("Examples:");
+		console.log(
+			'  bun run tools/processBacklog.ts original-artifacts/biggby_backlog.csv "Jacob Williams" "Biggby"'
+		);
+		console.log(
+			'  bun run tools/processBacklog.ts data.csv "Developer" "Project" --email "dev@example.com"'
+		);
+		process.exit(0);
+	}
+
 	if (args.length < 3) {
 		console.error(
 			"Usage: bun run tools/processBacklog.ts <backlog-file.csv> <developer-name> <project-name> [options]"

@@ -174,6 +174,28 @@ async function main() {
 	const args = process.argv.slice(2);
 	const command = args[0];
 
+	// Handle process signals gracefully
+	process.on("SIGINT", () => {
+		console.log("\n👋 Operation cancelled by user");
+		process.exit(0);
+	});
+
+	if (args.includes("--help") || args.includes("-h") || args[0] === "help") {
+		console.log("🤖 AI Configuration Tool");
+		console.log("");
+		console.log("Usage: bun run scripts/configureAI.ts <command>");
+		console.log("");
+		console.log("Commands:");
+		console.log("  status    Show current AI provider configuration");
+		console.log("  set       Set AI provider (local|openai|claude)");
+		console.log("");
+		console.log("Examples:");
+		console.log("  bun run scripts/configureAI.ts status");
+		console.log("  bun run scripts/configureAI.ts set openai");
+		console.log("  bun run scripts/configureAI.ts set claude");
+		process.exit(0);
+	}
+
 	console.log("🤖 Project Experience Artifacts - AI Configuration");
 
 	switch (command) {

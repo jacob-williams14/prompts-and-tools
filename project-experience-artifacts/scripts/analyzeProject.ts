@@ -571,9 +571,52 @@ async function analyzeProject(
 async function main() {
 	const args = process.argv.slice(2);
 
+	// Handle process signals gracefully
+	process.on("SIGINT", () => {
+		console.log("\n👋 Operation cancelled by user");
+		process.exit(0);
+	});
+
+	if (args.includes("--help") || args.includes("-h") || args[0] === "help") {
+		console.log("🔍 Project Analysis Tool");
+		console.log("");
+		console.log(
+			"Usage: bun run scripts/analyzeProject.ts <data-file> <developer-name> <project-name> [options]"
+		);
+		console.log("");
+		console.log("Options:");
+		console.error(
+			"  --career-context <text>       Rich career context paragraph"
+		);
+		console.error("  --project-context <context>   Additional project context");
+		console.error(
+			"  --role <text>                 Override inferred role in header"
+		);
+		console.error(
+			"  --duration <text>             Override inferred duration in header"
+		);
+		console.log("");
+		console.log("Description:");
+		console.log(
+			"  Analyzes project data (CSV/git logs) to generate comprehensive project summaries"
+		);
+		console.log("");
+		console.log("Examples:");
+		console.log(
+			'  bun run scripts/analyzeProject.ts data.csv "Jacob Williams" "Biggby Mobile App"'
+		);
+		console.log(
+			'  bun run scripts/analyzeProject.ts git.log "Developer" "Project" --role "Lead Developer"'
+		);
+		process.exit(0);
+	}
+
 	if (args.length < 3) {
 		console.error(
 			"Usage: bun run scripts/analyzeProject.ts <data-file> <developer-name> <project-name> [options]"
+		);
+		console.error(
+			'Use "bun run scripts/analyzeProject.ts --help" for more information'
 		);
 		console.error("");
 		console.error("Options:");
