@@ -141,7 +141,8 @@ Git Logs → extractGitData() → analyzeProject() → Professional Summary
 **Data Processing Tools** (`project-experience-artifacts/tools/`)
 
 - `extractGitData.ts`: Git log parsing and developer filtering
-- CSV backlog processing (planned)
+- `processBacklog.ts`: CSV backlog processing
+- `validateArtifacts.ts`: Artifact validation
 
 **Input Sources** (`project-experience-artifacts/datasources/`)
 
