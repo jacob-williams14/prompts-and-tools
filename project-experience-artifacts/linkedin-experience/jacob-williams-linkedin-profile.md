@@ -5,6 +5,8 @@
 linkedin-experience/*-linkedin-experience.md, voice-cache/jacob-williams-voice.json,
 resources/strengths/*
 **Quality control:** linkedin-experience/jacob-williams-atomic-object-experience.md (existing entry)
+**Experience section:** regenerated from the canonical synthesizer prompt run in `local` mode
+(`locally-generated-prompts/jacob-williams-atomic-experience-prompt.md`) — no API, no invented metrics.
 
 > This file adds the two pieces the repo didn't have — a **Headline** and an **About** section —
 > and includes a lightly refreshed **Experience** entry presented next to the existing one so you
@@ -60,26 +62,24 @@ doing.
 
 **Role:** Software Engineer → Co-Technical Lead
 
-I'm drawn to the work where the problem isn't obvious at first — the kind where you have to dig into
-the domain, ask the basic questions, and build something that actually fits the people using it.
-Over nearly four years at Atomic Object I've gotten to do that across healthcare, judicial systems,
-global education, and consumer apps, growing from individual contributor to co-technical lead and
-learning that adaptability beats any single framework.
+I'm at my best when I get dropped into a domain I know nothing about and have to figure out how the
+whole thing should fit together before any code is worth writing. Four years in, I care less about
+any single stack than about leaving the team and the system better than I found them.
 
-• Stepped into co-technical lead mid-project on a greenfield React Native ordering app, owning
-everything from Stripe payments to CI/CD on EAS Build as the original lead rolled off.
+• Designed token-based correlation between two subsystems on a statewide court finance platform so
+citizens could control their own payment-reminder consent without anything falling through the
+cracks. (.NET/C#, Angular, SQL, Twilio, SendGrid)
 
-• Designed token-based correlation between subsystems on a statewide court finance platform, so
-citizens could manage SMS and email payment reminders across hundreds of thousands of cases without
-losing track of who consented to what.
+• Architected the content model for a global learning platform, untangling nested multi-language
+structures so non-technical teams could publish across languages without breaking the site.
+(Laravel, Contentful, JSON Schema, REST API)
 
-• Architected the content model for a global learning platform, solving nested multi-language
-modeling in Contentful that let non-technical teams publish across languages without breaking the
-relationships between content types.
+• Stepped in as co-technical lead on a greenfield mobile ordering app mid-project, taking over
+architecture and stakeholder calls as the original lead rolled off. (React Native, Expo, Stripe,
+EAS Build, CI/CD)
 
-• Kept a kinesiology evaluation platform stable through a CMS's rocky beta-to-stable migration,
-building autosave and conditional field logic that let practitioners run multi-session clinical
-assessments without losing complex baseline data.
+• Kept a clinical evaluation platform stable through a CMS's rocky beta-to-stable migration,
+protecting multi-session assessment data through breaking version jumps. (PayloadCMS, RBAC)
 
 ---
 
@@ -91,6 +91,10 @@ assessments without losing complex baseline data.
 - The **About** leans into your writing voice (the "here's the thing / it turns out" cadence from
   your blog). If you want it more buttoned-up for a specific audience, say the word and I'll dial it
   back.
-- The refreshed Experience entry is a light tightening of the existing
-  `jacob-williams-atomic-object-experience.md`, which is already strong. If you prefer the original
-  wording, we keep it — nothing here overwrites that file.
+- The Experience entry is the **canonical synthesizer output** (themed summary + 4 bullets) produced
+  from the per-project sources via the local-mode prompt, so it follows the tool's rules verbatim —
+  notably no invented metrics. An earlier hand-written draft fabricated "hundreds of thousands of
+  cases"; that has been removed. Nothing here overwrites `jacob-williams-atomic-object-experience.md`.
+- **Tenure wording is inconsistent on purpose, pending your call:** About says "nearly four years",
+  the Experience summary says "Four years in" (the `--experience-years "4 years"` flag used for the
+  run). Pick one once you confirm the real number.

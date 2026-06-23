@@ -158,8 +158,14 @@ STRUCTURE:
 BREVITY IS NON-NEGOTIABLE:
 - Each bullet is ONE concise sentence. No compound sentences joined by em-dashes, semicolons, or "and."
 - No lists within a bullet. ONE specific example beats three generic ones.
-- If a bullet has a comma-separated list of more than two items, it's too long. Cut it.
+- If a bullet has a comma-separated list of more than two items, it's too long. Cut it. (This limit applies to the SENTENCE only, not the tech-stack tag below.)
 - This is LinkedIn. People scan in 5 seconds. Dense, punchy, specific.
+
+KEYWORDS — REQUIRED, REPRODUCIBLE:
+- End EVERY bullet with a parenthetical tech-stack tag listing the concrete technologies from that bullet's source material, e.g. "(React Native, Expo, Stripe, EAS Build)".
+- Pull ONLY from the source bullets — never invent a technology that isn't there. If a source bullet names no specific tech, use the closest accurate category present (e.g. "(REST API design)") rather than fabricating a stack.
+- Keep the tag to the 2-5 most recruiter-relevant terms; these are search keywords, so prefer named frameworks/languages/services (React Native, TypeScript, .NET, Laravel, PostgreSQL, Contentful, CI/CD) over generic words.
+- The tag lives OUTSIDE the one-sentence prose and does not count against the brevity rules above.
 
 BALANCE PROFESSIONAL VOCABULARY WITH HUMAN VOICE:
 - Use industry-standard terms that recruiters search for (React Native, CI/CD, API design, system design, technical lead, full-stack). These are keywords — keep them.
