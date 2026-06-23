@@ -1,9 +1,15 @@
 # Spec: Migrate Generators to Claude Code Skills
 
-- **Status:** next (queued for a future branch)
-- **Branch:** future
+- **Status:** in progress (on the `experience-bank` branch)
+- **Branch:** `experience-bank`
 - **Owner:** Jacob Williams
 - **Last updated:** 2026-06-23
+
+> **Progress (2026-06-23):** the two core skills are built — `.claude/skills/experience-bank/`
+> (extract + maintain the bank) and `.claude/skills/tailored-render/` (render documents). Remaining:
+> the `voice-signature` skill, and deleting the now-optional AI-SDK layer (`lib/ai.ts`, `lib/claude.ts`,
+> `lib/aiConfig.ts`, `.ai-config.json`) once the skills fully cover generation — coordinate with
+> `model-sdk-modernization.md`.
 
 ## Summary
 

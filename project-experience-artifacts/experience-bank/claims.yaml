@@ -22,8 +22,9 @@ meta:
   company: Atomic Object
   updated: "2026-06-23"
   note: >-
-    Seeded from the 5 per-project linkedin-experience files. Strength ratings and plain_language are a
-    starting proposal for Jacob to curate. Pre-Atomic experience not yet included (see open questions).
+    Populated from project-experience-summaries/ (the generated upstream layer). Strength ratings and
+    plain_language are starting proposals — adjust at render time, not by hand-editing. Atomic-only by
+    design (no pre-Atomic experience exists).
 
 claims:
   # ── Domain: retail / consumer mobile (greenfield ordering app) ──────────────
@@ -342,3 +343,434 @@ claims:
       Designed auto-population that cut duplicate data entry by pre-filling client fields and seeding
       result types from test categories, streamlining practitioner workflows.
     plain_language: ""
+
+  # ════════════════════════════════════════════════════════════════════════════
+  # Additional claims extracted from project-experience-summaries/ (2026-06-23).
+  # Strength/hook are proposed defaults — adjust at render time.
+  # ════════════════════════════════════════════════════════════════════════════
+
+  # ── retail / consumer mobile (more depth) ───────────────────────────────────
+  - id: mobile-auth-token-refresh
+    project: biggby
+    domain: retail / consumer mobile
+    themes: [system design, reliability]
+    tech: [React Native, TypeScript, Expo]
+    scope: owned-feature
+    strength: featured
+    hook: true
+    keyword_rich: >-
+      Built a mobile authentication system with a robust refresh-token flow, automatic retry logic,
+      and secure token storage, plus a guest mode with conversion-focused signup points.
+    plain_language: >-
+      Built the login system, including the part that keeps you signed in safely without re-logging,
+      plus a way to browse as a guest before making an account.
+
+  - id: mobile-menu-ordering-cart
+    project: biggby
+    domain: retail / consumer mobile
+    themes: [system design]
+    tech: [React Native, TypeScript]
+    scope: owned-feature
+    strength: featured
+    hook: true
+    keyword_rich: >-
+      Built a hierarchical menu and ordering system with product customization (sizes, add-ons), full
+      cart management, and a three-step checkout spanning cart, pickup, and payment.
+    plain_language: >-
+      Built the part of the app where you browse the menu, customize your drink, and check out.
+
+  - id: mobile-graphql-rest-integration
+    project: biggby
+    domain: retail / consumer mobile
+    themes: [system design, reliability]
+    tech: [GraphQL, REST, TypeScript, React Native]
+    scope: co-tech-lead
+    strength: solid
+    hook: false
+    keyword_rich: >-
+      Architected integration patterns spanning both GraphQL and REST endpoints, with consistent
+      error handling across mixed backend protocols.
+    plain_language: ""
+
+  - id: mobile-state-architecture
+    project: biggby
+    domain: retail / consumer mobile
+    themes: [system design, technical leadership]
+    tech: [React Native, TypeScript, React Hooks]
+    scope: co-tech-lead
+    strength: solid
+    hook: false
+    keyword_rich: >-
+      Designed the app's state-management architecture covering cart persistence, authentication, and
+      store selection.
+    plain_language: ""
+
+  - id: mobile-store-selection-location
+    project: biggby
+    domain: retail / consumer mobile
+    themes: [system design]
+    tech: [React Native, TypeScript]
+    scope: owned-feature
+    strength: solid
+    hook: false
+    keyword_rich: >-
+      Designed store-selection and geolocation features including a bottom-sheet store picker,
+      dynamic filtering by hours and online-ordering availability, and pickup options like
+      drive-through.
+    plain_language: ""
+
+  - id: mobile-ios-autofill-bug
+    project: biggby
+    domain: retail / consumer mobile
+    themes: [reliability, cross-domain adaptability]
+    tech: [React Native, Expo]
+    scope: owned-feature
+    strength: solid
+    hook: false
+    keyword_rich: >-
+      Diagnosed and resolved a complex iOS password-manager autofill bug that caused double-login,
+      along with other iOS-specific UX inconsistencies.
+    plain_language: ""
+
+  - id: mobile-pricing-tax-testing
+    project: biggby
+    domain: retail / consumer mobile
+    themes: [testing, reliability]
+    tech: [React Native]
+    scope: owned-feature
+    strength: solid
+    hook: false
+    keyword_rich: >-
+      Established testing and validation for pricing calculations and tax-rate implementations across
+      multiple store locations, exercising payment-method edge cases.
+    plain_language: ""
+
+  - id: mobile-stakeholder-mentoring
+    project: biggby
+    domain: retail / consumer mobile
+    themes: [technical leadership, growth]
+    tech: [React Native]
+    scope: co-tech-lead
+    strength: solid
+    hook: false
+    keyword_rich: >-
+      Communicated technical progress and trade-offs to non-technical stakeholders while leading code
+      reviews and mentoring teammates on React Native best practices.
+    plain_language: ""
+
+  # ── state judicial / government finance (more depth) ─────────────────────────
+  - id: courts-case-search-table
+    project: jis
+    domain: state judicial / government finance
+    themes: [system design]
+    tech: [Angular, TypeScript]
+    scope: owned-feature
+    strength: solid
+    hook: false
+    keyword_rich: >-
+      Built a party-records case search experience with tenant and party inputs and a selectable,
+      horizontally-scrollable results table with client-side pagination and batch-enable selection.
+    plain_language: ""
+
+  - id: courts-auto-case-numbering
+    project: jis
+    domain: state judicial / government finance
+    themes: [reliability]
+    tech: [Angular, TypeScript]
+    scope: owned-feature
+    strength: solid
+    hook: false
+    keyword_rich: >-
+      Developed Auto-Case-Numbering safeguards with cancellation prompts and confirmation modals,
+      consistent keyboard and focus handling, and corrected copy and date handling to reduce clerical
+      errors.
+    plain_language: ""
+
+  - id: courts-accessibility-modals
+    project: jis
+    domain: state judicial / government finance
+    themes: [reliability, testing]
+    tech: [Angular, Material Design]
+    scope: owned-feature
+    strength: solid
+    hook: false
+    keyword_rich: >-
+      Standardized dialog accessibility across the UI, normalizing escape-to-close and click-outside
+      behaviors and tightening focus management for modal controls.
+    plain_language: ""
+
+  - id: courts-timezone-date-fixes
+    project: jis
+    domain: state judicial / government finance
+    themes: [reliability]
+    tech: [Angular, TypeScript, .NET/C#]
+    scope: IC
+    strength: solid
+    hook: false
+    keyword_rich: >-
+      Diagnosed and fixed UTC-versus-local date defects and implemented a server-derived current-date
+      function for accurate document date population, improving correctness.
+    plain_language: ""
+
+  - id: courts-pdf-viewer
+    project: jis
+    domain: state judicial / government finance
+    themes: [system design]
+    tech: [Angular, ngx-extended-pdf-viewer]
+    scope: owned-feature
+    strength: solid
+    hook: false
+    keyword_rich: >-
+      Built form-template PDF preview and drafting workflows, customizing an extended PDF viewer with
+      preloaded version PDFs, progress overlays, error surfacing, and save-to-draft controls.
+    plain_language: ""
+
+  - id: courts-legacy-doc-routing
+    project: jis
+    domain: state judicial / government finance
+    themes: [system design]
+    tech: [Angular, TypeScript]
+    scope: owned-feature
+    strength: solid
+    hook: false
+    keyword_rich: >-
+      Implemented legacy-aware document rendering and deep-link routing with draft and document-display
+      routes and proper 404 handling to keep older and newer systems interoperable.
+    plain_language: ""
+
+  - id: courts-figma-collaboration
+    project: jis
+    domain: state judicial / government finance
+    themes: [cross-domain adaptability, growth]
+    tech: [Figma, Angular]
+    scope: IC
+    strength: filler
+    hook: false
+    keyword_rich: >-
+      Partnered closely with designers to deliver UI in tight alignment with Figma specifications,
+      improving usability and stakeholder trust.
+    plain_language: ""
+
+  # ── global leadership-development / education — primary platform (more depth) ─
+  - id: edu-content-modeling
+    project: root-compass
+    domain: global leadership-development / education
+    themes: [system design, i18n]
+    tech: [Contentful]
+    scope: owned-feature
+    strength: solid
+    hook: false
+    keyword_rich: >-
+      Designed Contentful content models defining structures for modules, tools, videos, commitments,
+      and breakout sessions to power dynamic, locale-aware experiences.
+    plain_language: ""
+
+  - id: edu-accessible-react-ui
+    project: root-compass
+    domain: global leadership-development / education
+    themes: [cross-domain adaptability]
+    tech: [React, JavaScript]
+    scope: owned-feature
+    strength: solid
+    hook: false
+    keyword_rich: >-
+      Built reusable React components (language selectors, navigation) with responsive design and
+      accessibility improvements including color-contrast fixes and semantic HTML.
+    plain_language: ""
+
+  - id: edu-build-asset-hashing
+    project: root-compass
+    domain: global leadership-development / education
+    themes: [devops/CI, reliability]
+    tech: [Laravel, Heroku]
+    scope: owned-feature
+    strength: solid
+    hook: false
+    keyword_rich: >-
+      Designed asset-hashing and cache-busting strategies to optimize build output across development
+      and production environments.
+    plain_language: ""
+
+  - id: edu-cross-functional-cms
+    project: root-compass
+    domain: global leadership-development / education
+    themes: [technical leadership, growth]
+    tech: [Contentful]
+    scope: IC
+    strength: solid
+    hook: false
+    keyword_rich: >-
+      Translated requirements from content creators and international stakeholders into Contentful
+      models, and led code reviews and mentoring around CMS and internationalization integration.
+    plain_language: ""
+
+  # ── global leadership-development / education — companion platform (more depth) ─
+  - id: edu2-headless-cms-integration
+    project: root-leading-change
+    domain: global leadership-development / education
+    themes: [system design, i18n]
+    tech: [Laravel, PHP, Contentful]
+    scope: owned-feature
+    strength: featured
+    hook: true
+    keyword_rich: >-
+      Architected a headless-CMS integration connecting a Laravel/PHP backend to Contentful's delivery
+      API, with content-model mapping for posts, topics, categories, and featured content, plus dynamic
+      markdown and rich-text rendering.
+    plain_language: >-
+      Connected the PHP backend to a headless CMS so editors managed content in one place and it showed
+      up correctly on the site, including formatted text and different content types.
+
+  - id: edu2-i18n-language-selector
+    project: root-leading-change
+    domain: global leadership-development / education
+    themes: [i18n, system design]
+    tech: [React, JavaScript]
+    scope: owned-feature
+    strength: featured
+    hook: false
+    keyword_rich: >-
+      Built end-to-end internationalization including a language-selector with dynamic routing,
+      seamless switching, translated navigation/footer, a v2 API for localized content, and
+      language-aware content parsing.
+    plain_language: >-
+      Made the companion platform work in multiple languages — the language picker, the routing so
+      switching worked smoothly, and the translated navigation.
+
+  - id: edu2-react-modernization
+    project: root-leading-change
+    domain: global leadership-development / education
+    themes: [technical leadership, system design]
+    tech: [React, JavaScript]
+    scope: owned-feature
+    strength: solid
+    hook: false
+    keyword_rich: >-
+      Systematically refactored a React front-end from class to functional components, improving
+      maintainability and performance and optimizing cross-component data flow and state management.
+    plain_language: ""
+
+  - id: edu2-favorites-feature
+    project: root-leading-change
+    domain: global leadership-development / education
+    themes: [system design]
+    tech: [React, JavaScript]
+    scope: owned-feature
+    strength: solid
+    hook: false
+    keyword_rich: >-
+      Delivered UX features including a favorites system with real-time updates and persistent state,
+      post categorization and filtering, and topic-based content navigation.
+    plain_language: ""
+
+  - id: edu2-growth-leadership
+    project: root-leading-change
+    domain: global leadership-development / education
+    themes: [growth, cross-domain adaptability]
+    tech: []
+    scope: IC
+    strength: solid
+    hook: false
+    keyword_rich: >-
+      Grew from an entry-level developer into a contributor with emerging technical leadership, owning
+      architecture decisions and testing strategy while collaborating across design, content, and
+      backend teams at Atomic Object.
+    plain_language: ""
+
+  # ── healthcare / clinical (more depth) ──────────────────────────────────────
+  - id: health-multitab-persistence
+    project: rore
+    domain: healthcare / clinical
+    themes: [system design, reliability]
+    tech: [PayloadCMS, React, TypeScript, Next.js]
+    scope: owned-feature
+    strength: featured
+    hook: true
+    keyword_rich: >-
+      Solved hard state-management problems for very large clinical forms, building data persistence
+      across a multi-tab evaluation interface so practitioners could move between hundreds of
+      interlinked tests without losing in-progress work.
+    plain_language: >-
+      Made it so a clinician filling out a huge multi-tab evaluation can switch tabs freely and nothing
+      they typed gets lost.
+
+  - id: health-client-crud-platform
+    project: rore
+    domain: healthcare / clinical
+    themes: [system design]
+    tech: [PayloadCMS, React, Next.js, TypeScript, MongoDB]
+    scope: owned-feature
+    strength: solid
+    hook: false
+    keyword_rich: >-
+      Built end-to-end client lifecycle management (creation, viewing, editing, rich note-taking) as
+      the cornerstone workflow for the clinical evaluation platform.
+    plain_language: ""
+
+  - id: health-relational-modeling
+    project: rore
+    domain: healthcare / clinical
+    themes: [system design]
+    tech: [MongoDB, PayloadCMS, TypeScript]
+    scope: owned-feature
+    strength: solid
+    hook: false
+    keyword_rich: >-
+      Modeled complex relationships across clients, evaluations, individual movement tests, and
+      training data, plus configurable test types with dynamic result typing.
+    plain_language: ""
+
+  - id: health-baseline-followup
+    project: rore
+    domain: healthcare / clinical
+    themes: [system design]
+    tech: [PayloadCMS, MongoDB, TypeScript]
+    scope: owned-feature
+    strength: solid
+    hook: false
+    keyword_rich: >-
+      Designed baseline-and-follow-up tracking linking initial exams to later reassessments, enabling
+      longitudinal comparison of a client's results over time.
+    plain_language: ""
+
+  - id: health-large-catalog-search
+    project: rore
+    domain: healthcare / clinical
+    themes: [system design]
+    tech: [React, Next.js, TypeScript, PayloadCMS]
+    scope: owned-feature
+    strength: solid
+    hook: false
+    keyword_rich: >-
+      Built filtering, sorting, and logical grouping for a catalog of hundreds of assessments, letting
+      clinicians navigate and select tests efficiently during evaluations.
+    plain_language: ""
+
+  - id: health-custom-form-controls
+    project: rore
+    domain: healthcare / clinical
+    themes: [system design]
+    tech: [React, TypeScript, PayloadCMS]
+    scope: owned-feature
+    strength: solid
+    hook: false
+    keyword_rich: >-
+      Developed custom dropdown components and form controls to meet specific clinical workflow needs
+      while staying compatible with the underlying CMS framework.
+    plain_language: ""
+
+  - id: health-clinical-collaboration
+    project: rore
+    domain: healthcare / clinical
+    themes: [cross-domain adaptability, growth]
+    tech: []
+    scope: IC
+    strength: solid
+    hook: true
+    keyword_rich: >-
+      Worked directly across engineering, clinical, and business stakeholders to translate real-world
+      kinesiology and physiology evaluation workflows into software, incorporating user-testing
+      feedback iteratively.
+    plain_language: >-
+      Sat down with the clinical and business folks, learned how they actually run evaluations, and
+      turned that into software, adjusting based on their feedback as we went.

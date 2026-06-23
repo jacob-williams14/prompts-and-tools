@@ -10,11 +10,16 @@ versioning scheme is adopted.
 
 ### Added
 
-- **Experience bank** (`experience-bank/`): `claims.yaml` seeded with ~23 tagged, confidentiality-safe
-  claims from the 5 per-project files, plus `README.md`. The bank is now the source of truth; documents
-  are renders over it.
-- `specs/render-rules-reference.md` — preserved the `createSynthesisPrompt` phrasing rules (for the
-  future `tailored-render` skill) before deleting the synthesizer.
+- **Experience bank** (`experience-bank/`): `claims.yaml` with **53 tagged, confidentiality-safe
+  claims** pulled from `project-experience-summaries/*` (the generated upstream layer), plus
+  `README.md`. The bank is the source of truth; documents are renders over it.
+- **Bank index renderer**: `experience-bank/buildIndex.ts` (`bun run buildBankIndex`) generates
+  `experience-bank/index.md`, a browsable grouped view. Adds the `yaml` dependency.
+- **Claude Code skills**: `.claude/skills/experience-bank/` (extract + maintain the bank) and
+  `.claude/skills/tailored-render/` (render LinkedIn/resume/JD documents from the bank) — the
+  `skills-migration` work landing.
+- `specs/render-rules-reference.md` — preserved the `createSynthesisPrompt` phrasing rules (now used
+  by the `tailored-render` skill) before deleting the synthesizer.
 - LinkedIn profile artifact: `project-experience-artifacts/linkedin-experience/jacob-williams-linkedin-profile.md`
   (Headline variants, About section, refreshed Atomic Object Experience entry) — generated directly
   by Claude Code with no API usage.

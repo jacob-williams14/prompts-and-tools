@@ -5,12 +5,19 @@
 - **Owner:** Jacob Williams
 - **Last updated:** 2026-06-23
 
-> **Progress (2026-06-23):** bank seeded — `experience-bank/claims.yaml` populated with ~23 tagged,
-> anonymized claims from the 5 per-project files; `experience-bank/README.md` added; render rules
-> preserved in [render-rules-reference.md](./render-rules-reference.md). Retired synthesizer
-> (`generateAtomicExperience`) and its output artifacts deleted. Still to do: curate strength/
-> plain_language, add the bank→markdown index renderer, and build the `experience-bank` /
-> `tailored-render` skills.
+> **Progress (2026-06-23):**
+>
+> - Bank populated: `experience-bank/claims.yaml` now holds **53 tagged, anonymized claims** pulled
+>   from `project-experience-summaries/*` (the generated upstream layer) — the full 5-project depth,
+>   not just the headline bullets.
+> - `experience-bank/README.md` + render rules preserved in
+>   [render-rules-reference.md](./render-rules-reference.md).
+> - **Index renderer built:** `experience-bank/buildIndex.ts` (`bun run buildBankIndex`) generates
+>   `experience-bank/index.md`, a browsable grouped view. Adds a `yaml` dependency.
+> - **Skills built:** `.claude/skills/experience-bank/` (extract/maintain) and
+>   `.claude/skills/tailored-render/` (render documents). This is the `skills-migration` work landing.
+> - Retired synthesizer (`generateAtomicExperience`) and its output artifacts deleted.
+> - Still open: curate strength/hook/plain_language conversationally as renders surface needs.
 
 ## Summary
 
@@ -114,4 +121,7 @@ Deterministic scripts stay scripts: git/CSV parsing, the bank→markdown index r
   renderer under `tailored-render`?
 - Strength-rating scale — 3 tiers (featured/solid/filler) enough, or finer?
 - JD input: pasted text into the skill, or a file under `inputs/`?
-- Does the bank also hold non-Atomic / pre-Atomic experience, or Atomic-only for now?
+- ~~Does the bank hold pre-Atomic experience?~~ **Resolved 2026-06-23: Atomic-only** — Jacob has no
+  pre-Atomic professional experience.
+- Storage format: keeping **YAML** (chosen for hand-readability + comments); the index renderer uses
+  the `yaml` dependency to parse it.
