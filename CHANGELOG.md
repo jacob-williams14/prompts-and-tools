@@ -8,6 +8,16 @@ versioning scheme is adopted.
 
 ## [Unreleased]
 
+### Changed — KB contract rewire (Phase 4): reconcile source-of-truth docs
+
+- **Reframed `brainspace/artifacts/README.md` to the bank model.** `contributions/` is now described
+  as the experience bank (`claims.yaml` + `index.md`, tagged technical/non-technical) — the curated
+  source of truth, distinct from the regenerable renders. Dropped the heavy "polished, aggregated
+  contributions record" wording and the blanket "everything regenerable" claim. (The
+  `knowledge-base.md` half was done in Phase 0.) Completes Phases 1–4 of `specs/kb-contract-rewire.md`.
+- Added `specs/cowork-runnable-skills.md` (status: next) — plan to make the skills drivable from
+  cowork (the intended driver), with this repo staying the canonical tool.
+
 ### Added — KB contract rewire (Phase 3): worklog → bank enrichment
 
 - **Worklog→bank enrichment mode on the `experience-bank` skill** — reads

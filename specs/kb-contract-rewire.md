@@ -93,10 +93,19 @@ approved ones into the bank. Agent-driven (no code/API), per the contract.
   bank only through the worklog→non-technical path; summaries stay "what was built" (git/backlogs).
   This preserves the two-kinds/two-sources split from Phase 2 and avoids double-counting.
 
-## Out of scope (later phases)
+## Phase 4 — reconcile the source-of-truth docs (done)
 
-- **Phase 4:** reconcile `artifacts/README.md` wording (the `knowledge-base.md` half was done in
-  Phase 0).
+`artifacts/README.md` reframed to the bank model: `contributions/` is **the experience bank**
+(`claims.yaml` + `index.md`, tagged technical/non-technical), the curated source of truth — distinct
+from the regenerable renders (summaries, LinkedIn, bio). Dropped the heavy "polished, aggregated
+contributions record" wording and the blanket "everything here is regenerable" claim. (The
+`knowledge-base.md` half was done in Phase 0.)
+
+## Follow-on
+
+- **cowork-runnable skills** — make the skills usable from cowork (the driver), keeping the repo as
+  the canonical tool. Tracked in `specs/cowork-runnable-skills.md` (status: next). Do after Phases 1–4
+  land and the enrichment path is tested.
 
 ## Verification
 

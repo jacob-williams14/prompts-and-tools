@@ -8,7 +8,8 @@ designed but intentionally parked · `done` = shipped · `superseded` = replaced
 
 | Spec | Status | Target branch | Last updated |
 | --- | --- | --- | --- |
-| [kb-contract-rewire.md](./kb-contract-rewire.md) | active | `feat/kb-contract-rewire` | 2026-06-24 |
+| [kb-contract-rewire.md](./kb-contract-rewire.md) | active (P1–4 done) | `feat/kb-contract-rewire` | 2026-06-24 |
+| [cowork-runnable-skills.md](./cowork-runnable-skills.md) | next | TBD | 2026-06-24 |
 | [experience-bank.md](./experience-bank.md) | active | `experience-bank` | 2026-06-23 |
 | [skills-migration.md](./skills-migration.md) | done | `experience-bank` | 2026-06-23 |
 | [artifact-validation.md](./artifact-validation.md) | deferred | future | 2026-06-23 |
@@ -28,14 +29,16 @@ Reference docs (preserved prompt IP, not roadmap items):
    migrated into `brainspace/{data,artifacts}/`, code + skills repointed). Phase 2 done (bank tagged
    `kind: technical | non-technical`; index groups by kind). Phase 3 done (worklog→bank enrichment
    mode on the `experience-bank` skill: `source:`-keyed dedup + `worklog_enriched_through` watermark;
-   `project-summary` deliberately does NOT read the worklog). Remaining: Phase 4 (reconcile
-   `artifacts/README.md`).
-1. ~~**experience-bank**~~ — bank built and populated (active; curation is ongoing/conversational).
-2. ~~**skills-migration**~~ — **done**: 3 skills built, AI-SDK layer + generators deleted, IP preserved.
-3. ~~**model-sdk-modernization**~~ — **obsolete**: no API path left to modernize.
-4. **robustness-and-quality** — remaining: tests, pin `@types/bun`, the `voiceCache` ESM fix, and the
+   `project-summary` deliberately does NOT read the worklog). Phase 4 done (`artifacts/README.md`
+   reframed to the bank model). **Phases 1–4 complete — pending an enrichment test run, then merge.**
+1. **cowork-runnable-skills** (next) — make the skills drivable from cowork (the driver), repo stays
+   canonical. After the rewire lands + the enrichment path is tested.
+2. ~~**experience-bank**~~ — bank built and populated (active; curation is ongoing/conversational).
+3. ~~**skills-migration**~~ — **done**: 3 skills built, AI-SDK layer + generators deleted, IP preserved.
+4. ~~**model-sdk-modernization**~~ — **obsolete**: no API path left to modernize.
+5. **robustness-and-quality** — remaining: tests, pin `@types/bun`, the `voiceCache` ESM fix, and the
    no-API reliability bugs from 2026-06-23. (Validate stubs + stale AI deps already removed.)
-5. **resume-generator** — a render target, once you want it.
+6. **resume-generator** — a render target, once you want it.
 
 **Superseded:** `linkedin-profile.md` — the one-off artifact shipped, but profile-as-product is
 replaced by the bank + render model. Kept for history.
