@@ -17,17 +17,19 @@ of these files get deleted instead of fixed.
 The codebase is readable and typed, but the audit flagged gaps that matter once these tools are
 relied on for real job-search artifacts:
 
-- **Empty scaffolding:** `tools/validateArtifacts.ts` and `scripts/validateOutput.ts` are TODO-only
-  stubs that exit with "not implemented."
+- ~~**Empty scaffolding:** `tools/validateArtifacts.ts` and `scripts/validateOutput.ts` are TODO-only
+  stubs.~~ **Done 2026-06-23:** both deleted in the skills migration. The *deterministic* validators
+  that should replace them (schema, confidentiality, structure checks) are scoped in
+  [artifact-validation.md](./artifact-validation.md) along with the model-based verify loop.
 - **No tests:** zero coverage for git parsing, CSV processing, AI-response parsing, or cache
   lifecycle.
 - **Unused reliability config:** `CONFIG.MAX_RETRIES` is defined but never used; no retry/backoff;
   no timeouts on AI calls.
-- **Stale deps:** `@anthropic-ai/sdk` (~0.63), Vercel `ai` (^4, v5 may break), floating
-  `@types/bun: latest`.
-- **Fragile patterns:** `lib/voiceCache.ts` mixes `require("fs")` into ESM; `generateBio.ts` uses a
-  biased `Math.random()` shuffle; `analyzeAuthorStyle.ts` does manual, lossy JSON escaping and
-  fragile markdown-fence stripping; `RATE_LIMIT_DELAY` is inconsistent (100 vs 1000).
+- **Stale deps:** ~~`@anthropic-ai/sdk` (~0.63), Vercel `ai` (^4)~~ removed 2026-06-23 (the AI-SDK
+  layer is gone), along with `@ai-sdk/openai` and `zod`. Remaining: floating `@types/bun: latest`
+  still to pin; `cheerio` / `csv-parser` / `yaml` / `@inquirer/*` to review.
+- **Fragile patterns (in surviving code):** `lib/voiceCache.ts` mixes `require("fs")` into ESM. (The
+  `generateBio` shuffle and `analyzeAuthorStyle` JSON-escaping issues were deleted with their files.)
 
 ### Found during the 2026-06-23 canonical-path run (local mode)
 
@@ -43,12 +45,10 @@ concrete failures, all of which made the no-API path unusable until worked aroun
   present-but-stale cached signature as a valid input (use it, warn, don't refresh); never let voice
   refresh failure abort prompt generation. Workaround used this time: temporarily bumped the cache
   `lastUpdated` to "now" (reverted after).
-- **Output/input location collision.** The finished artifact
-  `linkedin-experience/jacob-williams-linkedin-profile.md` lives in the same directory
-  `discoverLinkedInFiles()` scans for per-project *sources*, so `--all` ingested it as a project and
-  fed truncated garbage bullets into the synthesis prompt. **Fix:** separate inputs from outputs
-  (distinct dirs, or a filename convention / front-matter marker that `discoverLinkedInFiles`
-  filters on, e.g. only `*-linkedin-experience.md`).
+- ~~**Output/input location collision** in the old `discoverLinkedInFiles()` synthesizer flow.~~
+  **Resolved 2026-06-23:** the synthesizer and the entire `linkedin-experience/` directory were
+  deleted; the bank reads only from `project-experience-summaries/`, so there's no shared input/output
+  dir to collide.
 - **rtk hook strips quoted CLI args.** Through the shell proxy, `--developer "Jacob Williams"` arrives
   as `Jacob` (+ stray `Williams`), which silently breaks the cache slug and downstream name handling.
   **Fix (operational):** run these generators from a wrapper script file (quotes preserved) rather

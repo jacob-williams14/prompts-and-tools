@@ -1,9 +1,23 @@
 # Spec: Experience Bank + Tailored Render
 
-- **Status:** next (primary direction for the next branch)
-- **Branch:** future
+- **Status:** active (in progress on the `experience-bank` branch)
+- **Branch:** `experience-bank`
 - **Owner:** Jacob Williams
 - **Last updated:** 2026-06-23
+
+> **Progress (2026-06-23):**
+>
+> - Bank populated: `experience-bank/claims.yaml` now holds **53 tagged, anonymized claims** pulled
+>   from `project-experience-summaries/*` (the generated upstream layer) — the full 5-project depth,
+>   not just the headline bullets.
+> - `experience-bank/README.md` + render rules preserved in
+>   [render-rules-reference.md](./render-rules-reference.md).
+> - **Index renderer built:** `experience-bank/buildIndex.ts` (`bun run buildBankIndex`) generates
+>   `experience-bank/index.md`, a browsable grouped view. Adds a `yaml` dependency.
+> - **Skills built:** `.claude/skills/experience-bank/` (extract/maintain) and
+>   `.claude/skills/tailored-render/` (render documents). This is the `skills-migration` work landing.
+> - Retired synthesizer (`generateAtomicExperience`) and its output artifacts deleted.
+> - Still open: curate strength/hook/plain_language conversationally as renders surface needs.
 
 ## Summary
 
@@ -35,13 +49,15 @@ and not the highest-value one. So:
 
 ### Three layers
 
-1. **Extract** (per project, do once): project data (git logs, CSVs, existing
-   `project-experience-summaries/*` and `linkedin-experience/*-linkedin-experience.md`) → a set of
-   structured claims. Largely already done; this step normalizes what exists into the bank schema.
-2. **Curate** (human / Jacob — the quality gate): tag and rate each claim; mark featured/hooks; write
-   the confidentiality-safe phrasing; keep both a keyword-rich and a plain-language register.
-3. **Render** (on demand, cheap, disposable): given a target, select + lightly rephrase claims into a
-   view. Many small renders, never the source of truth.
+1. **Extract** (per project, do once): from `project-experience-summaries/*` (the generated upstream
+   layer) → a set of structured claims. Done; the `experience-bank` skill maintains this.
+2. **Curate** (conversational, not hand-editing): tags, ratings, hooks, and the dual-register phrasing
+   live in the bank, but Jacob maintains them by *talking to Claude* ("add a claim about X", "bump
+   this to featured"), not by editing YAML. Seeded defaults are fine until a render exposes one that's
+   wrong.
+3. **Render** (on demand, cheap, disposable — and where judgment actually happens): given a target,
+   select + lightly rephrase claims into a view. Jacob steers at this step ("lead with courts", "drop
+   that one"). Many small renders, never the source of truth.
 
 ### Claim schema (per entry)
 
@@ -90,7 +106,8 @@ Deterministic scripts stay scripts: git/CSV parsing, the bank→markdown index r
 
 ## Quality gate
 
-- Curation is human-owned; nothing enters "featured" without Jacob's sign-off.
+- The gate is at **render time**, not at storage. Jacob doesn't hand-maintain the bank; he approves
+  the document that actually gets published.
 - A render is adopted for a given surface only if it's clearly as good or better than the current
   hand-written version for that surface (same standing rule as the rest of the repo).
 - No invented tech or metrics — claims and tags must trace to source material.
@@ -103,4 +120,7 @@ Deterministic scripts stay scripts: git/CSV parsing, the bank→markdown index r
   renderer under `tailored-render`?
 - Strength-rating scale — 3 tiers (featured/solid/filler) enough, or finer?
 - JD input: pasted text into the skill, or a file under `inputs/`?
-- Does the bank also hold non-Atomic / pre-Atomic experience, or Atomic-only for now?
+- ~~Does the bank hold pre-Atomic experience?~~ **Resolved 2026-06-23: Atomic-only** — Jacob has no
+  pre-Atomic professional experience.
+- Storage format: keeping **YAML** (chosen for hand-readability + comments); the index renderer uses
+  the `yaml` dependency to parse it.
