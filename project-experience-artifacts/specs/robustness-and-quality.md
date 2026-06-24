@@ -18,7 +18,9 @@ The codebase is readable and typed, but the audit flagged gaps that matter once 
 relied on for real job-search artifacts:
 
 - ~~**Empty scaffolding:** `tools/validateArtifacts.ts` and `scripts/validateOutput.ts` are TODO-only
-  stubs.~~ **Done 2026-06-23:** both deleted in the skills migration.
+  stubs.~~ **Done 2026-06-23:** both deleted in the skills migration. The *deterministic* validators
+  that should replace them (schema, confidentiality, structure checks) are scoped in
+  [artifact-validation.md](./artifact-validation.md) along with the model-based verify loop.
 - **No tests:** zero coverage for git parsing, CSV processing, AI-response parsing, or cache
   lifecycle.
 - **Unused reliability config:** `CONFIG.MAX_RETRIES` is defined but never used; no retry/backoff;

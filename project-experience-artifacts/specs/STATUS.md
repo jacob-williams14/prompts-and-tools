@@ -10,6 +10,7 @@ designed but intentionally parked · `done` = shipped · `superseded` = replaced
 | --- | --- | --- | --- |
 | [experience-bank.md](./experience-bank.md) | active | `experience-bank` | 2026-06-23 |
 | [skills-migration.md](./skills-migration.md) | done | `experience-bank` | 2026-06-23 |
+| [artifact-validation.md](./artifact-validation.md) | deferred | future | 2026-06-23 |
 | [resume-generator.md](./resume-generator.md) | deferred | future | 2026-06-23 |
 | [robustness-and-quality.md](./robustness-and-quality.md) | next | future | 2026-06-23 |
 | [model-sdk-modernization.md](./model-sdk-modernization.md) | obsolete | — | 2026-06-23 |
