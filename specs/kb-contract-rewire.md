@@ -16,7 +16,7 @@ Today this repo violates that: it holds inputs (`datasources/`, `data/posts*`), 
 as durable, repo-local data, with hardcoded repo-relative paths throughout.
 
 This branch (Phase 1) honors the read/write contract: centralize paths, migrate state out into
-brainspace, and repoint all code + skills at the KB zones. Phases 2–4 (the `kind` dimension,
+brainspace, and repoint all code + skills at the KB zones. Phases 2–4 (the `type` dimension,
 worklog→bank enrichment, the source-of-truth note) are tracked separately.
 
 ## Path scheme
@@ -65,16 +65,16 @@ processed git-data `--save` output). No `data/` or output dirs in the repo.
 
 ## Phase 2 — bank organized by technical / non-technical (done)
 
-- Added `kind: technical | non-technical` to every claim (53 technical from the project summaries; the
+- Added `type: technical | non-technical` to every claim (53 technical from the project summaries; the
   3 `style-*` working-style claims = non-technical seeds). Documented the field in `claims.yaml`'s
   header.
-- `buildIndex.ts` now groups by `kind` first (top-level `## Technical` / `## Non-technical`), domains
-  nested as `###` beneath; summary line carries the kind counts.
-- `experience-bank` skill schema documents `kind` and the forward-capture rule for non-technical.
+- `buildIndex.ts` now groups by `type` first (top-level `## Technical` / `## Non-technical`), domains
+  nested as `###` beneath; summary line carries the type counts.
+- `experience-bank` skill schema documents `type` and the forward-capture rule for non-technical.
 
 ## Phase 3 — worklog → bank enrichment (forward-only)
 
-A mode on the `experience-bank` skill that reads the worklog and proposes `kind: non-technical`
+A mode on the `experience-bank` skill that reads the worklog and proposes `type: non-technical`
 claims (the "why": decisions, mentoring, process, leadership) for Jacob's approval, then writes the
 approved ones into the bank. Agent-driven (no code/API), per the contract.
 
@@ -91,7 +91,7 @@ approved ones into the bank. Agent-driven (no code/API), per the contract.
   watermark and rebuild the index.
 - **Decision (2026-06-24):** `project-summary` does **NOT** read the worklog. The "why" enters the
   bank only through the worklog→non-technical path; summaries stay "what was built" (git/backlogs).
-  This preserves the two-kinds/two-sources split from Phase 2 and avoids double-counting.
+  This preserves the two-types/two-sources split from Phase 2 and avoids double-counting.
 
 ## Phase 4 — reconcile the source-of-truth docs (done)
 

@@ -42,7 +42,7 @@ Each claim in `claims.yaml`:
 
 ```yaml
 - id: <domain-prefix>-<short-slug>     # stable, unique
-  kind: technical | non-technical       # technical = mined from project data; non-technical = the "why"
+  type: technical | non-technical       # technical = mined from project data; non-technical = the "why"
   project: <internal-codename>          # NOT for output
   domain: <public-safe domain string>   # USE THIS in renders, never the client name
   themes: [technical leadership | system design | cross-domain adaptability | reliability | growth | devops/CI | i18n | testing]
@@ -57,7 +57,7 @@ Each claim in `claims.yaml`:
   source: <worklog-filename>            # non-technical claims only — the worklog entry it came from
 ```
 
-**`kind`** is a first-class split, surfaced as top-level groups in the index:
+**`type`** is a first-class split, surfaced as top-level groups in the index:
 
 - **`technical`** — extracted from the project summaries (which trace to git logs / backlogs). Carries
   the full `domain` / `tech` / `themes` / `strength` detail.
@@ -91,7 +91,7 @@ below.
    `~/Projects/brainspace/artifacts/project-summaries/<project>-project-summary.md` fully.
 2. List the project's existing claims in `claims.yaml` so you don't duplicate.
 3. Extract genuinely distinct accomplishments as claim blocks (schema above), anonymized. Claims
-   pulled from a project summary are `kind: technical`.
+   pulled from a project summary are `type: technical`.
 4. Append them under the right domain section of `claims.yaml`.
 5. Rebuild the index: `bun run buildBankIndex`.
 
@@ -108,7 +108,7 @@ by the weekly review. Source: `~/Projects/brainspace/WorkLife/atomic/worklog/`.
    claims. Skip any worklog entry whose filename already appears as a `source:`. This is the real
    idempotency guard — it survives backfilled/out-of-order entries. (`meta.worklog_enriched_through`
    is just a cursor telling you roughly where you left off; don't rely on it to dedup.)
-3. **Extract** `kind: non-technical` claims from each remaining entry — a decision made and why, who
+3. **Extract** `type: non-technical` claims from each remaining entry — a decision made and why, who
    was mentored/unblocked, a process or leadership move. `tech` is usually `[]`; lean on the
    decision / context / who-was-unblocked detail. Set `source:` to the worklog filename. Anonymize
    per the confidentiality rules below and honor the worklog's NDA note. **Never invent** — if an

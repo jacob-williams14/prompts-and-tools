@@ -21,23 +21,23 @@ versioning scheme is adopted.
 ### Added — KB contract rewire (Phase 3): worklog → bank enrichment
 
 - **Worklog→bank enrichment mode on the `experience-bank` skill** — reads
-  `brainspace/WorkLife/atomic/worklog/`, proposes `kind: non-technical` claims (decisions, mentoring,
+  `brainspace/WorkLife/atomic/worklog/`, proposes `type: non-technical` claims (decisions, mentoring,
   process — the "why") for Jacob's approval, then writes the approved ones. Agent-driven, no API.
 - **Idempotency by `source:`** — each non-technical claim records the worklog filename it came from;
   entries already cited are skipped (survives backfill). `meta.worklog_enriched_through` added as an
   advisory cursor. Documented both fields in `claims.yaml`'s header; skips `kind: handoff` entries.
 - **Decision:** `project-summary` does **not** read the worklog — the "why" enters the bank only via
-  the worklog→non-technical path, preserving the Phase 2 two-kinds/two-sources split. See
+  the worklog→non-technical path, preserving the Phase 2 two-types/two-sources split. See
   `specs/kb-contract-rewire.md` (Phase 3).
 
 ### Added — KB contract rewire (Phase 2): technical / non-technical bank
 
-- **Tagged every bank claim with `kind: technical | non-technical`** (53 technical pulled from the
+- **Tagged every bank claim with `type: technical | non-technical`** (53 technical pulled from the
   project summaries; the 3 `style-*` working-style claims are the non-technical seeds). Non-technical
   claims are the "why" (decisions, mentoring, process) and are captured forward from the worklog;
   documented the field in `claims.yaml`'s header and the `experience-bank` skill schema.
-- **Bank index now groups by `kind`** (top-level `## Technical` / `## Non-technical`, with domains
-  nested beneath); `buildIndex.ts` surfaces both and reports the kind split. See
+- **Bank index now groups by `type`** (top-level `## Technical` / `## Non-technical`, with domains
+  nested beneath); `buildIndex.ts` surfaces both and reports the type split. See
   `specs/kb-contract-rewire.md` (Phase 2).
 
 ### Changed (structure) — KB contract rewire (Phase 1)

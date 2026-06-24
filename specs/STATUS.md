@@ -26,8 +26,8 @@ Reference docs (preserved prompt IP, not roadmap items):
 ## Working order for the next branch
 
 0. ~~**kb-contract-rewire**~~ — **done & merged**: Phases 1–4 (paths centralized in `lib/config.ts`;
-   state migrated into `brainspace/{data,artifacts}/`; bank tagged `kind: technical | non-technical`
-   with a kind-grouped index; worklog→bank enrichment with `source:`-keyed dedup + watermark;
+   state migrated into `brainspace/{data,artifacts}/`; bank tagged `type: technical | non-technical`
+   with a type-grouped index; worklog→bank enrichment with `source:`-keyed dedup + watermark;
    `artifacts/README.md` reframed). Enrichment tested end-to-end against the real worklog. brainspace
    is now its own git repo.
 1. ~~**cowork-runnable-skills**~~ — **deferred (abandoned for now)**: the async worklog handoff loop

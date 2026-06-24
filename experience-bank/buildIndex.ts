@@ -3,7 +3,7 @@
  * Bank index renderer (deterministic, no AI).
  *
  * Reads the bank's claims.yaml and writes index.md alongside it — a human-browsable view of the
- * bank grouped by domain. The bank lives in the knowledge base at artifacts/contributions/.
+ * bank grouped by type. The bank lives in the knowledge base at artifacts/contributions/.
  * Regenerate whenever claims change:
  *
  *   bun run buildBankIndex
@@ -15,11 +15,11 @@ import { join } from "path";
 import { parse } from "yaml";
 import { KB } from "../lib/config.js";
 
-type Kind = "technical" | "non-technical";
+type ClaimType = "technical" | "non-technical";
 
 interface Claim {
 	id: string;
-	kind?: Kind;
+	type?: ClaimType;
 	project?: string;
 	domain: string;
 	themes?: string[];
@@ -35,8 +35,11 @@ const SRC = join(KB.CONTRIBUTIONS, "claims.yaml");
 const OUT = join(KB.CONTRIBUTIONS, "index.md");
 
 const STRENGTH_ORDER: Record<string, number> = { featured: 0, solid: 1, filler: 2 };
-const KIND_ORDER: Kind[] = ["technical", "non-technical"];
-const KIND_LABEL: Record<Kind, string> = { technical: "Technical", "non-technical": "Non-technical" };
+const TYPE_ORDER: ClaimType[] = ["technical", "non-technical"];
+const TYPE_LABEL: Record<ClaimType, string> = {
+	technical: "Technical",
+	"non-technical": "Non-technical",
+};
 
 function firstSentence(text: string, maxWords = 22): string {
 	const flat = text.replace(/\s+/g, " ").trim();
@@ -65,33 +68,33 @@ function groupByDomain(list: Claim[]): Map<string, Claim[]> {
 	return byDomain;
 }
 
-// Group by kind first (technical / non-technical), domains nested under each. Map is string-keyed
-// because YAML can carry a value outside the Kind union (a typo like `kind: tech`); those claims are
-// surfaced with a warning rather than silently dropped from the index.
-const byKind = new Map<string, Claim[]>();
+// Group by type first (technical / non-technical), domains nested under each. Map is string-keyed
+// because YAML can carry a value outside the ClaimType union (a typo like `type: tech`); those claims
+// are surfaced with a warning rather than silently dropped from the index.
+const byType = new Map<string, Claim[]>();
 for (const c of claims) {
-	const k = c.kind ?? "technical";
-	const arr = byKind.get(k) ?? [];
+	const t = c.type ?? "technical";
+	const arr = byType.get(t) ?? [];
 	arr.push(c);
-	byKind.set(k, arr);
+	byType.set(t, arr);
 }
 
-// Known kinds first (in order), then any unrecognized ones — warned, but still rendered.
-const knownKinds = KIND_ORDER.filter((k) => byKind.get(k)?.length);
-const unknownKinds = [...byKind.keys()].filter((k) => !KIND_ORDER.includes(k as Kind));
-for (const k of unknownKinds) {
-	const ids = byKind.get(k)!.map((c) => c.id).join(", ");
+// Known types first (in order), then any unrecognized ones — warned, but still rendered.
+const knownTypes = TYPE_ORDER.filter((t) => byType.get(t)?.length);
+const unknownTypes = [...byType.keys()].filter((t) => !TYPE_ORDER.includes(t as ClaimType));
+for (const t of unknownTypes) {
+	const ids = byType.get(t)!.map((c) => c.id).join(", ");
 	console.warn(
-		`⚠️  unrecognized kind "${k}" on ${byKind.get(k)!.length} claim(s) — expected ${KIND_ORDER.join(" | ")}: ${ids}`
+		`⚠️  unrecognized type "${t}" on ${byType.get(t)!.length} claim(s) — expected ${TYPE_ORDER.join(" | ")}: ${ids}`
 	);
 }
-const orderedKinds = [...knownKinds, ...unknownKinds];
+const orderedTypes = [...knownTypes, ...unknownTypes];
 
 const total = claims.length;
 const featured = claims.filter((c) => c.strength === "featured").length;
 const hooks = claims.filter((c) => c.hook).length;
 const domainCount = new Set(claims.map((c) => c.domain)).size;
-const kindSummary = orderedKinds.map((k) => `${byKind.get(k)!.length} ${k}`).join(" · ");
+const typeSummary = orderedTypes.map((t) => `${byType.get(t)!.length} ${t}`).join(" · ");
 
 const lines: string[] = [];
 lines.push("# Experience Bank — Index");
@@ -102,15 +105,15 @@ lines.push(
 );
 lines.push("");
 lines.push(
-	`**${total} claims** across ${domainCount} domains (${kindSummary}) — ${featured} featured, ${hooks} hooks.`
+	`**${total} claims** across ${domainCount} domains (${typeSummary}) — ${featured} featured, ${hooks} hooks.`
 );
 lines.push("");
 
-for (const kind of orderedKinds) {
-	const list = byKind.get(kind)!;
-	const label = KIND_ORDER.includes(kind as Kind)
-		? KIND_LABEL[kind as Kind]
-		: `${kind} (unrecognized kind)`;
+for (const claimType of orderedTypes) {
+	const list = byType.get(claimType)!;
+	const label = TYPE_ORDER.includes(claimType as ClaimType)
+		? TYPE_LABEL[claimType as ClaimType]
+		: `${claimType} (unrecognized type)`;
 	lines.push(`## ${label} (${list.length})`);
 	lines.push("");
 	const byDomain = groupByDomain(list);
@@ -129,4 +132,4 @@ for (const kind of orderedKinds) {
 
 // Bun.write auto-creates the parent dir; and reading SRC above already requires it to exist.
 await Bun.write(OUT, lines.join("\n"));
-console.log(`✅ Wrote ${OUT} — ${total} claims (${kindSummary}).`);
+console.log(`✅ Wrote ${OUT} — ${total} claims (${typeSummary}).`);
