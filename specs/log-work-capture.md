@@ -43,6 +43,8 @@ agent_assisted: true
 tags: [<area>]
 ---
 
+# Session — <one-line title>
+
 ## What I did
 ## Why / key decisions
 ## Unblocked / mentored
