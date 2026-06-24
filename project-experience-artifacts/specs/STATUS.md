@@ -31,8 +31,9 @@ Reference docs (preserved prompt IP, not roadmap items):
 **Superseded:** `linkedin-profile.md` — the one-off artifact shipped, but profile-as-product is
 replaced by the bank + render model. Kept for history.
 
-## Legacy to fold in
+## Cleanup log
 
-The existing `../future-ideas/` directory (`multi-agent-architecture.md`,
-`voice-analysis-integration-plan.md`) predates this `specs/` layout. Migrate or retire those into
-`specs/` in a future pass so there's a single home for plans.
+The legacy `../future-ideas/` directory and the `../archive/` and `../resources/` directories were
+removed 2026-06-23 (stale; superseded by current specs / the bank). Strengths were distilled into
+working-style claims in the bank; Atomic company-values and old prompt/bio archives were dropped (git
+retains history).

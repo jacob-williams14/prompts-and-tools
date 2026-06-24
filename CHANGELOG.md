@@ -55,9 +55,18 @@ versioning scheme is adopted.
   style-evolution generation capability is preserved via skills + reference docs; per-project-bullet
   and bio generation were intentionally dropped (their existing artifacts remain as data).
 - Removed now-unused dependencies: `@anthropic-ai/sdk`, `@ai-sdk/openai`, `ai`, `zod`.
+- **Stale-resource cleanup:** deleted `resources/atomic-values/` (company boilerplate),
+  `resources/strengths/` (distilled into the bank first — see below), `archive/` (old prompts/bios/
+  examples), and `future-ideas/` (superseded by `specs/`). Also removed local junk:
+  `enriched-style-summaries-*.json`, `locally-generated-prompts/`, stray `.DS_Store`.
 
 ### Changed
 
+- Folded CliftonStrengths into the bank as three `working style / approach` claims (replacing the raw
+  `resources/strengths/*.txt`); `tailored-render` uses them for About/summary renders. Bank now 56
+  claims across 5 domains.
+- Rewrote `project-experience-artifacts/README.md` to document the bank+skills architecture (the old
+  one described the removed AI-generator system).
 - LinkedIn profile Experience section regenerated from the **canonical synthesizer prompt** (run in
   `local` mode, no API) instead of a freehand draft. Removed a fabricated metric ("hundreds of
   thousands of cases") that the prompt's own rules forbid.

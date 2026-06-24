@@ -774,3 +774,53 @@ claims:
     plain_language: >-
       Sat down with the clinical and business folks, learned how they actually run evaluations, and
       turned that into software, adjusting based on their feedback as we went.
+
+  # ════════════════════════════════════════════════════════════════════════════
+  # Working style / approach — distilled from CliftonStrengths (Strategic,
+  # Restorative, Belief, Command, Connectedness). Not project-specific; useful for
+  # About / summary renders. (Replaces the raw resources/strengths/ files.)
+  # ════════════════════════════════════════════════════════════════════════════
+  - id: style-problem-solving
+    project: strengths
+    domain: working style / approach
+    themes: [system design, reliability]
+    tech: []
+    scope: cross-cutting
+    strength: featured
+    hook: false
+    keyword_rich: >-
+      Approaches problems by generating several paths to a goal and tracing them to root cause —
+      drawn to diagnosing and fixing what others overlook rather than patching symptoms.
+    plain_language: >-
+      I like the problems other people skip past. I tend to find a few ways to solve something, then
+      dig until I understand why it broke in the first place.
+
+  - id: style-leadership-initiative
+    project: strengths
+    domain: working style / approach
+    themes: [technical leadership, growth]
+    tech: []
+    scope: cross-cutting
+    strength: featured
+    hook: false
+    keyword_rich: >-
+      Takes initiative and makes the call others hesitate on, and is values-driven — motivated by
+      leaving the team and the product better than they were found.
+    plain_language: >-
+      I'll step into the decision nobody wants to own, and I care more about leaving the team and the
+      work better than about being right.
+
+  - id: style-mentoring-connection
+    project: strengths
+    domain: working style / approach
+    themes: [technical leadership]
+    tech: []
+    scope: cross-cutting
+    strength: solid
+    hook: false
+    keyword_rich: >-
+      Mentors and teaches naturally, getting to know people personally and helping them grow; connects
+      facts and events to reason from cause to effect.
+    plain_language: >-
+      I get to know the people I work with and like helping them level up — and I tend to reason from
+      how things actually connect, not gut feel.

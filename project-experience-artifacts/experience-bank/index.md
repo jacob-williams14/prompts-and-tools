@@ -2,7 +2,7 @@
 
 > Generated view of `claims.yaml` (the source of truth). Do not edit by hand — run `bun run buildBankIndex`. ★ = featured · ⚓ = hook.
 
-**53 claims** across 4 domains — 14 featured, 9 hooks.
+**56 claims** across 5 domains — 16 featured, 9 hooks.
 
 ## global leadership-development / education (17)
 
@@ -68,3 +68,9 @@
 - Implemented legacy-aware document rendering and deep-link routing with draft and document-display routes and proper 404 handling to keep older and newer systems…  _(Angular, TypeScript)_  `courts-legacy-doc-routing`
 - Introduced a structured QA process template that standardized testing across the team and tightened alignment between designs and delivered features  `courts-qa-process`
 - Partnered closely with designers to deliver UI in tight alignment with Figma specifications, improving usability and stakeholder trust  _(Figma, Angular)_  `courts-figma-collaboration`
+
+## working style / approach (3)
+
+- ★ Approaches problems by generating several paths to a goal and tracing them to root cause — drawn to diagnosing and fixing what…  `style-problem-solving`
+- ★ Takes initiative and makes the call others hesitate on, and is values-driven — motivated by leaving the team and the product better…  `style-leadership-initiative`
+- Mentors and teaches naturally, getting to know people personally and helping them grow; connects facts and events to reason from cause to…  `style-mentoring-connection`

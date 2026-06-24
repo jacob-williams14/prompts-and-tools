@@ -27,7 +27,8 @@ render directly.
    tags.)
 2. **Select** claims for the target:
    - LinkedIn Experience entry → ~4 themed claims, lead with `featured` and at least one `hook`.
-   - LinkedIn About / Headline → identity + breadth; pull across domains.
+   - LinkedIn About / Headline → identity + breadth; pull across domains, and lean on the
+     `working style / approach` claims (distilled from CliftonStrengths) for the "what drives me" angle.
    - Resume bullets → filter by the target role; terse register.
    - **JD-tailored set** → match the pasted job description against `tech`, `themes`, and `domain`;
      surface the closest claims. Tell the user which claims you picked and why.
