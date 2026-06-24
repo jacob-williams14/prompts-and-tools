@@ -1,9 +1,15 @@
 # Spec: Robustness & Code Quality Cleanup
 
-- **Status:** next (queued for a future branch)
+- **Status:** mostly done — only a test suite remains (deferred; low ROI for a solo tool)
 - **Branch:** future
 - **Owner:** Jacob Williams
 - **Last updated:** 2026-06-23
+
+> **2026-06-23:** the actionable items are done (dead config removed, `@types/bun` pinned, voiceCache
+> ESM fixed, rtk gotcha documented) or made obsolete by the skills migration (retry/timeouts,
+> stale-cache abort, validation stubs, fragile generators). The only thing left is a **test suite**
+> for the deterministic survivors (`extractGitData`, `processBacklog`, `voiceCache`, `buildIndex`),
+> intentionally deferred until the tool is shared or grows.
 
 ## Summary
 
@@ -23,11 +29,14 @@ relied on for real job-search artifacts:
   [artifact-validation.md](./artifact-validation.md) along with the model-based verify loop.
 - **No tests:** zero coverage for git parsing, CSV processing, AI-response parsing, or cache
   lifecycle.
-- **Unused reliability config:** `CONFIG.MAX_RETRIES` is defined but never used; no retry/backoff;
-  no timeouts on AI calls.
+- ~~**Unused reliability config:** `CONFIG.MAX_RETRIES` is defined but never used.~~ **Done
+  2026-06-23:** removed the dead `MAX_RETRIES` / `RATE_LIMIT_DELAY` / `PROJECT_SUMMARIES_DIR`
+  constants from `lib/config.ts`. (Retry/backoff/timeouts on AI calls are moot — there are no AI
+  calls; no API path.)
 - **Stale deps:** ~~`@anthropic-ai/sdk` (~0.63), Vercel `ai` (^4)~~ removed 2026-06-23 (the AI-SDK
-  layer is gone), along with `@ai-sdk/openai` and `zod`. Remaining: floating `@types/bun: latest`
-  still to pin; `cheerio` / `csv-parser` / `yaml` / `@inquirer/*` to review.
+  layer is gone), along with `@ai-sdk/openai` and `zod`. **`@types/bun` pinned to `^1.2.21`
+  (2026-06-23.)** Remaining runtime deps (`cheerio` / `csv-parser` / `yaml` / `@inquirer/*`) are
+  current and in use.
 - ~~**Fragile patterns (in surviving code):** `lib/voiceCache.ts` mixes `require("fs")` into ESM.~~
   **Fixed 2026-06-23:** replaced both `require("fs").statSync` calls with a top-level
   `import { statSync } from "fs"`; verified at runtime. (The `generateBio` shuffle and
@@ -38,38 +47,30 @@ relied on for real job-search artifacts:
 Running `generateAtomicExperience.ts` in `local` mode to emit the canonical prompt surfaced three
 concrete failures, all of which made the no-API path unusable until worked around by hand:
 
-- **Stale voice cache can't fall back in local mode.** When `voice-cache/<author>-voice.json` is
-  older than the 3-month TTL (`lib/voiceCache.ts` / `lib/voiceHelper.ts`), `getVoiceAnalysis` tries
-  to *refresh* it, which calls `analyzeAuthorStyle` → `generateAIText`, which returns null/errors in
-  local mode ("AI provider is set to 'local' mode"). The existing catch only falls back to cache when
-  `cacheStatus.exists` is true, but the throw from `analyzeAuthorStyle` ("No posts could be
-  successfully analyzed") propagates past it and aborts the whole run. **Fix:** in local mode, treat a
-  present-but-stale cached signature as a valid input (use it, warn, don't refresh); never let voice
-  refresh failure abort prompt generation. Workaround used this time: temporarily bumped the cache
-  `lastUpdated` to "now" (reverted after).
+- ~~**Stale voice cache can't fall back in local mode**~~ — **Resolved 2026-06-23:** the
+  refresh-and-abort logic lived in `lib/voiceHelper.ts`, which was deleted in the skills migration.
+  The `voice-signature` skill now handles staleness by design (use the cached signature, warn, refresh
+  only on request), so a stale cache no longer aborts anything. (`lib/voiceCache.ts`'s own ESM bug was
+  also fixed — see above.)
 - ~~**Output/input location collision** in the old `discoverLinkedInFiles()` synthesizer flow.~~
   **Resolved 2026-06-23:** the synthesizer and the entire `linkedin-experience/` directory were
   deleted; the bank reads only from `project-experience-summaries/`, so there's no shared input/output
   dir to collide.
-- **rtk hook strips quoted CLI args.** Through the shell proxy, `--developer "Jacob Williams"` arrives
-  as `Jacob` (+ stray `Williams`), which silently breaks the cache slug and downstream name handling.
-  **Fix (operational):** run these generators from a wrapper script file (quotes preserved) rather
-  than inline shell, or via `rtk proxy`. Worth a note in the repo CLAUDE.md / skill instructions.
+- ~~**rtk hook strips quoted CLI args.**~~ **Documented 2026-06-23:** added a "Quoting gotcha" note
+  to `AGENTS.md` — run scripts that take quoted args from a wrapper file (quotes preserved) rather
+  than inline shell.
 
-## Design
+## Remaining work (tests only)
 
-Sequence after the skills decision, because it changes the target set:
+Add a test runner (Bun's built-in `bun test`) covering the deterministic survivors:
+`tools/extractGitData.ts`, `tools/processBacklog.ts`, `lib/voiceCache.ts`, and
+`experience-bank/buildIndex.ts`. Skill behavior isn't unit-testable (the model-judgment validation
+lives in `artifact-validation.md`).
 
-1. Decide per file: delete (superseded by a skill) vs. fix.
-2. For surviving code: finish or delete the validation stubs; add a test runner (Bun's built-in test
-   or Vitest) covering parsers and cache; implement retry/backoff + timeouts in the AI path (if an
-   API path survives).
-3. Dependency pass: `bun outdated`, bump and smoke-test; pin `@types/bun`.
-4. Pattern fixes: ESM-only imports, Fisher–Yates shuffle, `JSON.stringify` for escaping, single
-   source of truth for rate-limit/constants.
+Everything else originally in this spec is done or obsolete (see the status note above) — the design
+steps about validation stubs, retry/timeouts, and fragile generators no longer apply because those
+files were deleted in the skills migration.
 
 ## Open questions
 
-- Which files survive the skills migration and are therefore worth fixing at all?
-- Test framework: Bun test vs. Vitest?
-- Is cost tracking in `analyzeAuthorStyle.ts` worth keeping, or remove it?
+- Is a test suite worth it at all for a solo tool, or defer indefinitely until it's shared?

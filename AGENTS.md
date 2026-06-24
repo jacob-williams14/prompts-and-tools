@@ -60,6 +60,11 @@ bun run htmlToMarkdown    # convert posts → data/posts-md/  (voice input)
 bun run buildBankIndex    # regenerate experience-bank/index.md from claims.yaml
 ```
 
+> **Quoting gotcha:** `extractGitData` / `processBacklog` take quoted args
+> (`… "Jacob Williams" "<Project>"`). A shell proxy (e.g. rtk) can strip the quotes, splitting
+> `"Jacob Williams"` into two args and breaking name handling. If a script misbehaves on a
+> multi-word arg, run it from a small wrapper script file (quotes preserved) rather than inline.
+
 ## Layout
 
 ```text

@@ -13,7 +13,7 @@ designed but intentionally parked · `done` = shipped · `superseded` = replaced
 | [artifact-validation.md](./artifact-validation.md) | deferred | future | 2026-06-23 |
 | [resume-generator.md](./resume-generator.md) | deferred | future | 2026-06-23 |
 | [repo-flatten.md](./repo-flatten.md) | done | `repo-flatten` | 2026-06-23 |
-| [robustness-and-quality.md](./robustness-and-quality.md) | next | future | 2026-06-23 |
+| [robustness-and-quality.md](./robustness-and-quality.md) | mostly done (tests deferred) | future | 2026-06-23 |
 | [model-sdk-modernization.md](./model-sdk-modernization.md) | obsolete | — | 2026-06-23 |
 | [linkedin-profile.md](./linkedin-profile.md) | superseded | `add-linkedin-project-generation` | 2026-06-23 |
 
