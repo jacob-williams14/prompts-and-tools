@@ -34,7 +34,9 @@ Reference docs (preserved prompt IP, not roadmap items):
 1. **log-work-capture** (active) — `/log-work` user-level skill written
    (`~/.claude/skills/log-work/`, tracked via dotfiles); writes session logs to the worklog. Bank side
    wired: enrich step now takes technical **or** non-technical from the worklog and carries
-   `source` + `agent_assisted`. Not yet exercised with a real session log. See `log-work-capture.md`.
+   `source` + `agent_assisted`. Exercised once (captured this build session) — the run surfaced and
+   fixed an H1-lint bug and a section-padding/fabrication issue. Still untested: enrichment *from* a
+   session log. See `log-work-capture.md`.
 2. ~~**cowork-runnable-skills**~~ — **deferred (abandoned for now)**: the async worklog handoff loop
    already covers the workflow; the port's permanent sync cost isn't justified by speculative gain.
    Revisit only on real friction.
