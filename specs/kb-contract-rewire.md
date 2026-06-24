@@ -79,7 +79,7 @@ claims (the "why": decisions, mentoring, process, leadership) for Jacob's approv
 approved ones into the bank. Agent-driven (no code/API), per the contract.
 
 - **Scope of input:** genuine work reflections only — weekly summaries (`*-summary.md`) and session
-  logs (`YYYY-MM-DD-HHMM-<slug>.md`). SKIP agent handoff entries (frontmatter `kind: handoff`) and
+  logs (`YYYY-MM-DD-HHMM-<slug>.md`). SKIP agent handoff entries (frontmatter `type: handoff`) and
   `README.md`.
 - **Idempotency (the real guard):** each non-technical claim records `source: <worklog-filename>`;
   skip any worklog entry already cited in an existing claim's `source:`. This survives backfill (an

@@ -104,8 +104,8 @@ may never get a full project summary (= `technical`, e.g. side/client projects).
 the bank from the worklog" and by the weekly review. Source: `~/Projects/brainspace/WorkLife/atomic/worklog/`.
 
 1. **Scope the input.** Consider only genuine work reflections: weekly summaries (`*-summary.md`) and
-   session logs (`kind: session-log`, named `YYYY-MM-DD-HHMM-<slug>.md`). **Skip** agent handoff
-   entries (frontmatter `kind: handoff`) and `README.md` — process chatter, not career material.
+   session logs (`type: session-log`, named `YYYY-MM-DD-HHMM-<slug>.md`). **Skip** agent handoff
+   entries (frontmatter `type: handoff`) and `README.md` — process chatter, not career material.
 2. **Skip what's already ingested.** Collect the `source:` values of **all** existing claims. Skip any
    worklog entry whose filename already appears as a `source:`. This is the real idempotency guard — it
    survives backfilled/out-of-order entries. (`meta.worklog_enriched_through` is just a cursor for

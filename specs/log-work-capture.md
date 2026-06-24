@@ -25,8 +25,9 @@ worklog at `~/Projects/brainspace/WorkLife/atomic/worklog/`; the bank and all pr
 | `source` | bank claim | the worklog filename it came from | *which input it came from* (provenance) |
 | `agent_assisted` | log entry + claim | true / false | *was an AI agent involved* (honest framing) |
 
-`type` (bank) and the worklog entry's `kind` are deliberately different namespaces: `kind` =
-*what kind of worklog entry* (`session-log` / `summary` / `handoff`); `type` = *what type of claim*.
+`type` is used in two different objects (same word, different file): on a **worklog entry** it labels
+the entry — `session-log` / `summary` / `handoff`; on a **bank claim** it labels the claim's nature —
+`technical` / `non-technical`.
 
 ## Session-log entry format
 
@@ -35,7 +36,7 @@ Written as `YYYY-MM-DD-HHMM-<slug>.md` in the worklog:
 ```text
 ---
 date: YYYY-MM-DD
-kind: session-log
+type: session-log
 project: <slug>
 branch: <branch>
 agent_assisted: true
@@ -71,7 +72,7 @@ log itself is not sanitized.
 
 The enrich-from-worklog mode is updated to:
 
-- recognize `kind: session-log` entries alongside weekly summaries; still skip `kind: handoff`;
+- recognize `type: session-log` entries alongside weekly summaries; still skip `type: handoff`;
 - extract **technical or non-technical** claims (not just non-technical);
 - set `source` and carry `agent_assisted` from the log;
 - frame agent-assisted claims at **Jacob's** altitude (what he directed / decided / reviewed), not

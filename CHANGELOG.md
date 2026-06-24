@@ -11,7 +11,7 @@ versioning scheme is adopted.
 ### Added — `/log-work` session capture + bank provenance
 
 - **`/log-work` skill (user-level, `~/.claude/skills/log-work/`, tracked via dotfiles)** — forward,
-  in-the-moment capture: at the end of a session in **any** project, writes a `kind: session-log`
+  in-the-moment capture: at the end of a session in **any** project, writes a `type: session-log`
   entry into the brainspace worklog (what was built, decisions/why, who was unblocked, open threads),
   `agent_assisted: true`, and commits it. Capture only — the `experience-bank` enrich step picks it up
   later under the human approval gate. See `specs/log-work-capture.md`.
@@ -24,7 +24,8 @@ versioning scheme is adopted.
 
 - Renamed the technical/non-technical dimension from `kind` to `type` across the renderer, the
   `experience-bank` skill, `claims.yaml` (all 59 claims), and the specs. Worklog entry frontmatter
-  keeps `kind:` (`session-log` / `summary` / `handoff`) as a separate namespace.
+  also uses `type` (`session-log` / `summary` / `handoff`) — same field name on a different object
+  (entry vs. claim), no `kind` left anywhere.
 
 ### Changed — KB contract rewire (Phase 4): reconcile source-of-truth docs
 
@@ -43,7 +44,7 @@ versioning scheme is adopted.
   process — the "why") for Jacob's approval, then writes the approved ones. Agent-driven, no API.
 - **Idempotency by `source:`** — each non-technical claim records the worklog filename it came from;
   entries already cited are skipped (survives backfill). `meta.worklog_enriched_through` added as an
-  advisory cursor. Documented both fields in `claims.yaml`'s header; skips `kind: handoff` entries.
+  advisory cursor. Documented both fields in `claims.yaml`'s header; skips `type: handoff` entries.
 - **Decision:** `project-summary` does **not** read the worklog — the "why" enters the bank only via
   the worklog→non-technical path, preserving the Phase 2 two-types/two-sources split. See
   `specs/kb-contract-rewire.md` (Phase 3).
