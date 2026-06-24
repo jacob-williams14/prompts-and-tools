@@ -1,8 +1,11 @@
 import { setupGracefulExit } from "./lib/cliUtils.js";
+import { CONFIG } from "./lib/config.js";
 
 const BASE_URL = "https://spin.atomicobject.com";
 const PER_PAGE = 100;
-const OUTPUT_DIR = "./data/posts";
+// Raw download is a re-fetchable, repo-local intermediate — not durable KB state.
+// htmlToMarkdown then converts these into the KB's data/voice-samples/.
+const OUTPUT_DIR = CONFIG.POSTS_DIR;
 
 interface WPPost {
 	id: number;
@@ -86,7 +89,7 @@ async function main() {
 		console.log(
 			"  This is a one-time setup step that creates a local database of posts"
 		);
-		console.log("  Posts are saved as JSON files in ./data/posts/ directory");
+		console.log("  Posts are saved as JSON files in ./.tmp/posts/ directory");
 		console.log("");
 		console.log("Options:");
 		console.log("  --help, -h    Show this help message");

@@ -34,13 +34,13 @@ report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
 # Finder (MacOS) folder config
 .DS_Store
 
-data
 enriched-style-summaries-*.json
 
 # Generated artifacts and cached data
 voice-cache/
 locally-generated-prompts/
 
-# Temporary processing files
+# Temporary processing files (re-derivable intermediates; durable state lives in brainspace)
+.tmp/
 *.tmp
 *.temp

@@ -255,7 +255,7 @@ async function main() {
 		console.log("");
 		console.log("Examples:");
 		console.log(
-			'  bun run tools/processBacklog.ts datasources/biggby_backlog.csv "Jacob Williams" "Biggby"'
+			'  bun run tools/processBacklog.ts ~/Projects/brainspace/data/backlogs/biggby_backlog.csv "Jacob Williams" "Biggby"'
 		);
 		console.log(
 			'  bun run tools/processBacklog.ts data.csv "Developer" "Project" --email "dev@example.com"'
@@ -274,7 +274,7 @@ async function main() {
 		console.error("");
 		console.error("Example:");
 		console.error(
-			'  bun run tools/processBacklog.ts datasources/biggby_backlog.csv "Jacob Williams" "Biggby"'
+			'  bun run tools/processBacklog.ts ~/Projects/brainspace/data/backlogs/biggby_backlog.csv "Jacob Williams" "Biggby"'
 		);
 		console.error(
 			'  bun run tools/processBacklog.ts backlog.csv "Jacob Williams" "Project" --email jacob@example.com'

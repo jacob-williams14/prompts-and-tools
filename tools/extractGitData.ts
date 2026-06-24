@@ -308,10 +308,10 @@ async function main() {
 		console.log("");
 		console.log("Examples:");
 		console.log(
-			'  bun run tools/extractGitData.ts git.log "Jacob Williams" "Project" --email "jacob@example.com"'
+			'  bun run tools/extractGitData.ts ~/Projects/brainspace/data/git-logs/<file>.txt "Jacob Williams" "Project" --email "jacob@example.com"'
 		);
 		console.log(
-			'  bun run tools/extractGitData.ts commits.log "Developer" "App" --save'
+			'  bun run tools/extractGitData.ts ~/Projects/brainspace/data/git-logs/<file>.txt "Developer" "App" --save'
 		);
 		process.exit(0);
 	}
@@ -333,7 +333,7 @@ async function main() {
 		console.error("");
 		console.error("Example:");
 		console.error(
-			'  bun run tools/extractGitData.ts compass-git-log.txt "Jacob Williams" "Compass Platform" --email jacob@example.com --save'
+			'  bun run tools/extractGitData.ts ~/Projects/brainspace/data/git-logs/root_compass_git_log.txt "Jacob Williams" "Compass Platform" --email jacob@example.com --save'
 		);
 		process.exit(1);
 	}

@@ -2,30 +2,34 @@
 name: experience-bank
 description: >-
   Maintain Jacob's experience bank — the tagged claim store at
-  experience-bank/claims.yaml. Use when adding, updating, tagging, or
-  curating experience claims, or when pulling new claims from the generated project summaries into the
-  bank. Triggers on "add a claim", "update the bank", "pull from the summaries", "re-tag", "rebuild
-  the bank index".
+  artifacts/contributions/claims.yaml in the knowledge base. Use when adding, updating, tagging, or
+  curating experience claims, when pulling new claims from the generated project summaries, or when
+  enriching the non-technical side from the worklog. Triggers on "add a claim", "update the bank",
+  "pull from the summaries", "enrich the bank from the worklog", "re-tag", "rebuild the bank index".
 ---
 
 # Experience Bank
 
-The bank (`experience-bank/claims.yaml`) is the source of truth for
+The bank (`~/Projects/brainspace/artifacts/contributions/claims.yaml`) is the source of truth for
 Jacob's project experience. Documents (LinkedIn, resume, JD-tailored sets) are RENDERS over it — see
 the `tailored-render` skill. This skill is for keeping the bank populated and accurate.
+
+> **Paths.** The bank and its inputs live in the knowledge base, rooted at `~/Projects/brainspace/`
+> (override with `$BRAINSPACE_ROOT`): summaries in `artifacts/project-summaries/`, the bank in
+> `artifacts/contributions/`. Bare `claims.yaml` references below mean that file.
 
 ## The pipeline (don't skip a layer)
 
 ```text
-datasources/ (git logs, CSVs)
-  → generateProjectSummary / analyzeProject  →  project-experience-summaries/*   (generated)
-      → EXTRACT (this skill)                 →  experience-bank/claims.yaml       (the bank)
+data/ (git logs in git-logs/, CSVs in backlogs/)
+  → project-summary skill                    →  artifacts/project-summaries/*   (generated)
+      → EXTRACT (this skill)                 →  artifacts/contributions/claims.yaml   (the bank)
           → RENDER (tailored-render skill)   →  LinkedIn / resume / JD
 ```
 
-Claims are pulled FROM `project-experience-summaries/*`, the generated upstream layer — not invented
-and not mined from raw logs directly. If a summary is missing or stale, regenerate it first with the
-project-summary tooling, then extract.
+Claims are pulled FROM `~/Projects/brainspace/artifacts/project-summaries/*`, the generated upstream
+layer — not invented and not mined from raw logs directly. If a summary is missing or stale,
+regenerate it first with the project-summary skill, then extract.
 
 ## No API
 
@@ -38,10 +42,11 @@ Each claim in `claims.yaml`:
 
 ```yaml
 - id: <domain-prefix>-<short-slug>     # stable, unique
+  kind: technical | non-technical       # technical = mined from project data; non-technical = the "why"
   project: <internal-codename>          # NOT for output
   domain: <public-safe domain string>   # USE THIS in renders, never the client name
   themes: [technical leadership | system design | cross-domain adaptability | reliability | growth | devops/CI | i18n | testing]
-  tech: [named technologies from the source only]
+  tech: [named technologies from the source only]   # usually [] for non-technical claims
   scope: IC | owned-feature | co-tech-lead
   strength: featured | solid | filler   # proposed default; Jacob adjusts at render time
   hook: true | false                    # a "I need to talk to this person" problem
@@ -49,7 +54,18 @@ Each claim in `claims.yaml`:
     ...
   plain_language: >-                     # plain-English; "" if not yet written (fill for featured/hook)
     ...
+  source: <worklog-filename>            # non-technical claims only — the worklog entry it came from
 ```
+
+**`kind`** is a first-class split, surfaced as top-level groups in the index:
+
+- **`technical`** — extracted from the project summaries (which trace to git logs / backlogs). Carries
+  the full `domain` / `tech` / `themes` / `strength` detail.
+- **`non-technical`** — decisions, mentoring, process, leadership — the "why" that git can't show.
+  These are **captured forward from the worklog** (`~/Projects/brainspace/WorkLife/atomic/worklog/`),
+  not mined retrospectively; `tech` is usually empty and they lean on the decision / context / who-was-
+  unblocked detail. (The worklog→bank enrichment flow is a later phase — see
+  `specs/kb-contract-rewire.md`.)
 
 ## Rules (non-negotiable)
 
@@ -65,16 +81,52 @@ Each claim in `claims.yaml`:
 
 ## Need a summary first?
 
-If `project-experience-summaries/<project>-project-summary.md` doesn't exist yet, generate it with
-the **`project-summary`** skill (datasources → summary), then extract claims from it below.
+If `~/Projects/brainspace/artifacts/project-summaries/<project>-project-summary.md` doesn't exist
+yet, generate it with the **`project-summary`** skill (data → summary), then extract claims from it
+below.
 
 ## Adding claims from a summary
 
-1. Read the relevant `project-experience-summaries/<project>-project-summary.md` fully.
+1. Read the relevant
+   `~/Projects/brainspace/artifacts/project-summaries/<project>-project-summary.md` fully.
 2. List the project's existing claims in `claims.yaml` so you don't duplicate.
-3. Extract genuinely distinct accomplishments as claim blocks (schema above), anonymized.
+3. Extract genuinely distinct accomplishments as claim blocks (schema above), anonymized. Claims
+   pulled from a project summary are `kind: technical`.
 4. Append them under the right domain section of `claims.yaml`.
 5. Rebuild the index: `bun run buildBankIndex`.
+
+## Enrich from the worklog (non-technical claims)
+
+This is the **forward-capture path** for the non-technical side of the bank — the "why" git can't
+show (decisions, mentoring, process, leadership). Triggered by "enrich the bank from the worklog" and
+by the weekly review. Source: `~/Projects/brainspace/WorkLife/atomic/worklog/`.
+
+1. **Scope the input.** Consider only genuine work reflections: weekly summaries (`*-summary.md`) and
+   session logs (`YYYY-MM-DD-HHMM-<slug>.md`). **Skip** agent handoff entries (frontmatter
+   `kind: handoff`) and `README.md` — they're process chatter, not career material.
+2. **Skip what's already ingested.** Collect the `source:` values of all existing non-technical
+   claims. Skip any worklog entry whose filename already appears as a `source:`. This is the real
+   idempotency guard — it survives backfilled/out-of-order entries. (`meta.worklog_enriched_through`
+   is just a cursor telling you roughly where you left off; don't rely on it to dedup.)
+3. **Extract** `kind: non-technical` claims from each remaining entry — a decision made and why, who
+   was mentored/unblocked, a process or leadership move. `tech` is usually `[]`; lean on the
+   decision / context / who-was-unblocked detail. Set `source:` to the worklog filename. Anonymize
+   per the confidentiality rules below and honor the worklog's NDA note. **Never invent** — if an
+   entry is still a template/placeholder (e.g. unfilled `⟵ add …` prompts, no real decisions written
+   up yet), treat it as **not yet written**: extract nothing from it, and in step 5 do **not** advance
+   the watermark past it (it's pending Jacob's fill-in, not "done"). The `source:` guard re-surfaces
+   it automatically once it has content.
+4. **Get sign-off.** Propose the candidate claims in chat — Jacob approves, edits, or drops each.
+   This is the quality gate; nothing is written without his ok.
+5. **Write** the approved claims under the right domain (or a `working style / approach` style domain
+   for cross-cutting ones), then advance `meta.worklog_enriched_through` to the latest date you
+   **completed** — i.e. the newest entry you either extracted from or confirmed is genuinely
+   complete-but-uneventful. Do **not** advance it over a still-unwritten template (see step 3). Then
+   rebuild the index (`bun run buildBankIndex`). The watermark is advisory; the per-claim `source:` is
+   the real dedup guard, so a thin entry left behind the watermark is still revisited correctly.
+
+> The companion `/log-work` capture skill (a separate Claude Code skill, not in this repo) writes the
+> session logs this consumes. If the worklog is thin, that's expected — this path fills forward.
 
 ## Curating
 

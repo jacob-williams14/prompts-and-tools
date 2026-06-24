@@ -8,6 +8,60 @@ versioning scheme is adopted.
 
 ## [Unreleased]
 
+### Changed — KB contract rewire (Phase 4): reconcile source-of-truth docs
+
+- **Reframed `brainspace/artifacts/README.md` to the bank model.** `contributions/` is now described
+  as the experience bank (`claims.yaml` + `index.md`, tagged technical/non-technical) — the curated
+  source of truth, distinct from the regenerable renders. Dropped the heavy "polished, aggregated
+  contributions record" wording and the blanket "everything regenerable" claim. (The
+  `knowledge-base.md` half was done in Phase 0.) Completes Phases 1–4 of `specs/kb-contract-rewire.md`.
+- Added `specs/cowork-runnable-skills.md` (status: next) — plan to make the skills drivable from
+  cowork (the intended driver), with this repo staying the canonical tool.
+
+### Added — KB contract rewire (Phase 3): worklog → bank enrichment
+
+- **Worklog→bank enrichment mode on the `experience-bank` skill** — reads
+  `brainspace/WorkLife/atomic/worklog/`, proposes `kind: non-technical` claims (decisions, mentoring,
+  process — the "why") for Jacob's approval, then writes the approved ones. Agent-driven, no API.
+- **Idempotency by `source:`** — each non-technical claim records the worklog filename it came from;
+  entries already cited are skipped (survives backfill). `meta.worklog_enriched_through` added as an
+  advisory cursor. Documented both fields in `claims.yaml`'s header; skips `kind: handoff` entries.
+- **Decision:** `project-summary` does **not** read the worklog — the "why" enters the bank only via
+  the worklog→non-technical path, preserving the Phase 2 two-kinds/two-sources split. See
+  `specs/kb-contract-rewire.md` (Phase 3).
+
+### Added — KB contract rewire (Phase 2): technical / non-technical bank
+
+- **Tagged every bank claim with `kind: technical | non-technical`** (53 technical pulled from the
+  project summaries; the 3 `style-*` working-style claims are the non-technical seeds). Non-technical
+  claims are the "why" (decisions, mentoring, process) and are captured forward from the worklog;
+  documented the field in `claims.yaml`'s header and the `experience-bank` skill schema.
+- **Bank index now groups by `kind`** (top-level `## Technical` / `## Non-technical`, with domains
+  nested beneath); `buildIndex.ts` surfaces both and reports the kind split. See
+  `specs/kb-contract-rewire.md` (Phase 2).
+
+### Changed (structure) — KB contract rewire (Phase 1)
+
+- **Migrated all durable state out of the repo into the brainspace knowledge base.** The repo is now
+  pure processing per the contract in `brainspace/WorkLife/self/notes/knowledge-base.md`. Moved:
+  `datasources/*` → `brainspace/data/{git-logs,backlogs}/`; `data/posts-md/*` (4703) →
+  `brainspace/data/voice-samples/`; `project-experience-summaries/*` (5) →
+  `brainspace/artifacts/project-summaries/`; `experience-bank/{claims.yaml,index.md}` →
+  `brainspace/artifacts/contributions/`. Raw downloaded posts (`data/posts/`) became the repo-local
+  intermediate `.tmp/posts/`. `voice-cache/` stays in the repo. Removed the emptied `datasources/`,
+  `project-experience-summaries/`, and `data/` dirs. See `specs/kb-contract-rewire.md`.
+- **Centralized paths in `lib/config.ts`**: added the resolved `KB` zone-path object and
+  `BRAINSPACE_ROOT` env var (default `~/Projects/brainspace`); repointed `PROCESSED_DATA_DIR` to the
+  non-durable `.tmp/processed`.
+- **Repointed all I/O** to the KB: `getPosts.ts` (`.tmp/posts/`), `htmlToMarkdown.ts` (reads
+  `.tmp/posts/`, writes `KB.VOICE_SAMPLES`), `experience-bank/buildIndex.ts` (reads/writes
+  `KB.CONTRIBUTIONS`, replacing the `import.meta.url` resolution), and the help-text examples in
+  `tools/extractGitData.ts` + `tools/processBacklog.ts`.
+- **Repointed all four skills** (`project-summary`, `experience-bank`, `tailored-render`,
+  `voice-signature`) to the brainspace zones; refreshed `AGENTS.md`, `README.md`, and
+  `experience-bank/README.md` (now documents the renderer; the bank data lives in the KB). Added
+  `.tmp/` to `.gitignore` and dropped the stale `data` ignore.
+
 ### Changed (structure)
 
 - **Flattened the repo.** Moved everything from `project-experience-artifacts/` to the repo root and

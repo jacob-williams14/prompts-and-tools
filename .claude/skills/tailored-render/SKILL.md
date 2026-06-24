@@ -2,7 +2,7 @@
 name: tailored-render
 description: >-
   Render a job-search document from Jacob's experience bank
-  (experience-bank/claims.yaml). Use when asked to produce a LinkedIn
+  (artifacts/contributions/claims.yaml in the knowledge base). Use when asked to produce a LinkedIn
   Experience entry / About / Headline, resume bullets, or a set of bullets tailored to a specific job
   description. Triggers on "render my LinkedIn experience", "make resume bullets", "tailor my
   experience to this job", "draft an About section".
@@ -11,9 +11,13 @@ description: >-
 # Tailored Render
 
 Turn bank claims into a target document. The bank
-(`experience-bank/claims.yaml`) is the source of truth; a render is a
+(`~/Projects/brainspace/artifacts/contributions/claims.yaml`) is the source of truth; a render is a
 cheap, disposable VIEW. Never edit the bank to make a render look better — fix the bank via the
 `experience-bank` skill, then re-render.
+
+> **Paths.** The bank lives in the knowledge base, rooted at `~/Projects/brainspace/` (override with
+> `$BRAINSPACE_ROOT`). Saved renders go to `artifacts/linkedin/` or `artifacts/bio/`. The voice cache
+> stays repo-local (`voice-cache/`).
 
 ## No API
 
@@ -22,8 +26,8 @@ render directly.
 
 ## Steps
 
-1. **Read** `experience-bank/claims.yaml`. (The browsable
-   `experience-bank/index.md` is a quick overview, but render from the YAML — it has the full text and
+1. **Read** `~/Projects/brainspace/artifacts/contributions/claims.yaml`. (The browsable
+   `index.md` alongside it is a quick overview, but render from the YAML — it has the full text and
    tags.)
 2. **Select** claims for the target:
    - LinkedIn Experience entry → ~4 themed claims, lead with `featured` and at least one `hook`.
@@ -54,5 +58,5 @@ Pick role/company lenses from `render-rules-reference.md` based on the target (e
 
 ## Output
 
-Present the render in chat for review. Only write it to a file if Jacob asks — and never overwrite an
-existing artifact blind.
+Present the render in chat for review. Only write it to a file if Jacob asks — and when he does, save
+under the KB's `artifacts/linkedin/` or `artifacts/bio/`. Never overwrite an existing artifact blind.
