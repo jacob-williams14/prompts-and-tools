@@ -8,8 +8,8 @@ designed but intentionally parked · `done` = shipped · `superseded` = replaced
 
 | Spec | Status | Target branch | Last updated |
 | --- | --- | --- | --- |
-| [kb-contract-rewire.md](./kb-contract-rewire.md) | active (P1–4 done) | `feat/kb-contract-rewire` | 2026-06-24 |
-| [cowork-runnable-skills.md](./cowork-runnable-skills.md) | next | TBD | 2026-06-24 |
+| [kb-contract-rewire.md](./kb-contract-rewire.md) | done (P1–4, merged) | `feat/kb-contract-rewire` | 2026-06-24 |
+| [cowork-runnable-skills.md](./cowork-runnable-skills.md) | deferred | — | 2026-06-24 |
 | [experience-bank.md](./experience-bank.md) | active | `experience-bank` | 2026-06-23 |
 | [skills-migration.md](./skills-migration.md) | done | `experience-bank` | 2026-06-23 |
 | [artifact-validation.md](./artifact-validation.md) | deferred | future | 2026-06-23 |
@@ -25,14 +25,14 @@ Reference docs (preserved prompt IP, not roadmap items):
 
 ## Working order for the next branch
 
-0. **kb-contract-rewire** (active) — Phase 1 done (paths centralized in `lib/config.ts`, state
-   migrated into `brainspace/{data,artifacts}/`, code + skills repointed). Phase 2 done (bank tagged
-   `kind: technical | non-technical`; index groups by kind). Phase 3 done (worklog→bank enrichment
-   mode on the `experience-bank` skill: `source:`-keyed dedup + `worklog_enriched_through` watermark;
-   `project-summary` deliberately does NOT read the worklog). Phase 4 done (`artifacts/README.md`
-   reframed to the bank model). **Phases 1–4 complete — pending an enrichment test run, then merge.**
-1. **cowork-runnable-skills** (next) — make the skills drivable from cowork (the driver), repo stays
-   canonical. After the rewire lands + the enrichment path is tested.
+0. ~~**kb-contract-rewire**~~ — **done & merged**: Phases 1–4 (paths centralized in `lib/config.ts`;
+   state migrated into `brainspace/{data,artifacts}/`; bank tagged `kind: technical | non-technical`
+   with a kind-grouped index; worklog→bank enrichment with `source:`-keyed dedup + watermark;
+   `artifacts/README.md` reframed). Enrichment tested end-to-end against the real worklog. brainspace
+   is now its own git repo.
+1. ~~**cowork-runnable-skills**~~ — **deferred (abandoned for now)**: the async worklog handoff loop
+   already covers the workflow; the port's permanent sync cost isn't justified by speculative gain.
+   Revisit only on real friction.
 2. ~~**experience-bank**~~ — bank built and populated (active; curation is ongoing/conversational).
 3. ~~**skills-migration**~~ — **done**: 3 skills built, AI-SDK layer + generators deleted, IP preserved.
 4. ~~**model-sdk-modernization**~~ — **obsolete**: no API path left to modernize.
@@ -42,6 +42,13 @@ Reference docs (preserved prompt IP, not roadmap items):
 
 **Superseded:** `linkedin-profile.md` — the one-off artifact shipped, but profile-as-product is
 replaced by the bank + render model. Kept for history.
+
+**Parked decisions (2026-06-24):**
+
+- **cowork-runnable skills** — deferred (see above / `cowork-runnable-skills.md`).
+- **brainspace auto-commit** — declined. brainspace is a git repo, but commits stay **manual /
+  skill-driven** (no always-on Stop/SessionStart hook). Revisit if state starts going uncommitted in
+  practice.
 
 ## Cleanup log
 

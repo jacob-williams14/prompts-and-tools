@@ -1,6 +1,11 @@
 # Spec: make the skills cowork-runnable
 
-**Status:** next · **Target branch:** TBD · **Last updated:** 2026-06-24
+**Status:** deferred (parked 2026-06-24) · **Target branch:** TBD · **Last updated:** 2026-06-24
+
+> **Parked.** The async loop already in place (cowork writes the worklog → CLI enriches → cowork reads
+> the bank) covers the common workflow, and the port carries permanent duplication/sync cost for gain
+> that's still speculative. Revisit only if real friction emerges from driving day-to-day in cowork —
+> not before. Kept for design history.
 
 ## Why
 
