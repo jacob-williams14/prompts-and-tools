@@ -2,15 +2,18 @@
 /**
  * Bank index renderer (deterministic, no AI).
  *
- * Reads experience-bank/claims.yaml and writes experience-bank/index.md — a human-browsable view
- * of the bank grouped by domain. Regenerate whenever claims change:
+ * Reads the bank's claims.yaml and writes index.md alongside it — a human-browsable view of the
+ * bank grouped by domain. The bank lives in the knowledge base at artifacts/contributions/.
+ * Regenerate whenever claims change:
  *
  *   bun run buildBankIndex
  *
  * This is a read-only VIEW. claims.yaml is the source of truth.
  */
 
+import { join } from "path";
 import { parse } from "yaml";
+import { KB } from "../lib/config.js";
 
 interface Claim {
 	id: string;
@@ -25,9 +28,8 @@ interface Claim {
 	plain_language?: string;
 }
 
-const BANK_DIR = new URL(".", import.meta.url).pathname;
-const SRC = `${BANK_DIR}claims.yaml`;
-const OUT = `${BANK_DIR}index.md`;
+const SRC = join(KB.CONTRIBUTIONS, "claims.yaml");
+const OUT = join(KB.CONTRIBUTIONS, "index.md");
 
 const STRENGTH_ORDER: Record<string, number> = { featured: 0, solid: 1, filler: 2 };
 
@@ -84,5 +86,6 @@ for (const domain of [...byDomain.keys()].sort()) {
 	lines.push("");
 }
 
+// Bun.write auto-creates the parent dir; and reading SRC above already requires it to exist.
 await Bun.write(OUT, lines.join("\n"));
 console.log(`✅ Wrote ${OUT} — ${total} claims, ${byDomain.size} domains.`);

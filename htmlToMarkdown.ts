@@ -2,6 +2,12 @@ import * as cheerio from "cheerio";
 import { mkdir } from "node:fs/promises";
 import { join } from "path";
 import { setupGracefulExit } from "./lib/cliUtils.js";
+import { CONFIG, KB } from "./lib/config.js";
+
+// Raw posts are a repo-local intermediate (re-fetchable via getPosts); the converted markdown is the
+// durable voice input and lives in the KB at data/voice-samples/.
+const POSTS_DIR = CONFIG.POSTS_DIR;
+const VOICE_SAMPLES_DIR = KB.VOICE_SAMPLES;
 
 interface PostData {
 	id: number;
@@ -158,7 +164,7 @@ function htmlToMarkdown(html: string): string {
 
 async function convertPostToMarkdown(postFile: string): Promise<void> {
 	try {
-		const postPath = join("data/posts", postFile);
+		const postPath = join(POSTS_DIR, postFile);
 		const postData: PostData = JSON.parse(await Bun.file(postPath).text());
 
 		const htmlContent = postData.content.rendered;
@@ -181,11 +187,11 @@ permalink: "${postData.link}"
 
 		const fullMarkdown = frontmatter + markdownContent;
 
-		// Create data/posts-md directory if it doesn't exist
-		const markdownDir = "data/posts-md";
+		// Write the converted markdown into the KB's voice-samples zone.
+		const markdownDir = VOICE_SAMPLES_DIR;
 		await mkdir(markdownDir, { recursive: true });
 
-		// Write to markdown file in posts-md directory
+		// Write to markdown file in the KB voice-samples directory
 		const markdownFile = postFile.replace(".json", ".md");
 		const markdownPath = join(markdownDir, markdownFile);
 
@@ -211,7 +217,7 @@ async function main() {
 		console.log("");
 		console.log("Commands:");
 		console.log(
-			"  all                   Convert all JSON files in data/posts/"
+			"  all                   Convert all JSON files in .tmp/posts/"
 		);
 		console.log("  <post-file.json>      Convert a specific post file");
 		console.log("");
@@ -232,7 +238,7 @@ async function main() {
 		console.log("  Run 'bun run getPosts.ts' first to download the blog posts");
 		console.log("");
 		console.log("Output:");
-		console.log("  Markdown files are saved to data/posts-md/ directory");
+		console.log(`  Markdown files are saved to the KB at ${VOICE_SAMPLES_DIR}`);
 		process.exit(0);
 	}
 
@@ -250,18 +256,18 @@ async function main() {
 		if (args[0] === "all") {
 			// Convert all JSON files in posts directory
 			console.log("🔄 Converting all blog posts to markdown...");
-			console.log("📁 Source: data/posts/");
-			console.log("📁 Output: data/posts-md/");
+			console.log(`📁 Source: ${POSTS_DIR}/`);
+			console.log(`📁 Output: ${VOICE_SAMPLES_DIR}/`);
 			console.log("");
 
-			const postsDir = new Bun.Glob("*.json").scan("data/posts");
+			const postsDir = new Bun.Glob("*.json").scan(POSTS_DIR);
 			const files = [];
 			for await (const file of postsDir) {
 				files.push(file);
 			}
 
 			if (files.length === 0) {
-				console.log("⚠️  No JSON files found in data/posts/");
+				console.log(`⚠️  No JSON files found in ${POSTS_DIR}/`);
 				console.log(
 					"   Run 'bun run getPosts.ts' first to download blog posts"
 				);
@@ -277,7 +283,7 @@ async function main() {
 			console.log(
 				`✅ Successfully converted ${files.length} posts to markdown!`
 			);
-			console.log("📁 Markdown files saved to: data/posts-md/");
+			console.log(`📁 Markdown files saved to: ${VOICE_SAMPLES_DIR}/`);
 			console.log("");
 			console.log(
 				"Next step: Voice analysis is now available in biography generation"

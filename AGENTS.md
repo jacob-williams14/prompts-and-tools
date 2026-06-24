@@ -13,19 +13,34 @@ directly — no API, no provider SDK.**
 ## Architecture — four layers
 
 ```text
-1. PARSE (deterministic scripts)     datasources/ → structured data
-2. SUMMARIZE (project-summary skill) data → project-experience-summaries/
-3. EXTRACT (experience-bank skill)   summaries → experience-bank/claims.yaml  (the bank)
-4. RENDER (tailored-render skill)    bank → LinkedIn / resume / JD
+1. PARSE (deterministic scripts)     data/git-logs|backlogs → structured data
+2. SUMMARIZE (project-summary skill) data → artifacts/project-summaries/
+3. EXTRACT (experience-bank skill)   summaries → artifacts/contributions/claims.yaml  (the bank)
+4. RENDER (tailored-render skill)    bank → artifacts/linkedin | bio
    (voice-signature skill feeds writing voice into renders)
 ```
+
+## Knowledge-base contract — state lives in brainspace, not the repo
+
+This repo is **pure processing**. All durable state lives in the knowledge base at
+`~/Projects/brainspace/` (override with `$BRAINSPACE_ROOT`); the repo owns only mechanism plus
+re-derivable intermediates. The full contract is at
+`~/Projects/brainspace/WorkLife/self/notes/knowledge-base.md`.
+
+```text
+READS   brainspace/data/{git-logs,backlogs,voice-samples}/   +  WorkLife/atomic/worklog/
+WRITES  brainspace/artifacts/{project-summaries,contributions,linkedin,bio}/
+REPO    holds no durable data — only voice-cache/ (cache) and .tmp/ (intermediates)
+```
+
+Paths resolve through `lib/config.ts` (`KB.*`). Don't reintroduce repo-local `data/` or output dirs.
 
 ## Skills are the primary interface
 
 Skills live in the repo-root `.claude/skills/`. Invoke them by doing the task they describe — don't
 look for the old generator scripts (deleted).
 
-- **`project-summary`** — datasources → a large per-project summary (follows
+- **`project-summary`** — `data/` (git logs, backlogs) → a large per-project summary (follows
   `specs/project-summary-rules-reference.md`).
 - **`experience-bank`** — summary → tagged claims in `claims.yaml`; maintain the bank; rebuild index.
 - **`tailored-render`** — bank → LinkedIn / resume / JD / About (follows
@@ -55,9 +70,9 @@ bun install
 bun run type-check        # tsc --noEmit
 bun run extractGitData    # parse git logs → structured data
 bun run processBacklog    # parse CSV backlogs → structured data
-bun run getPosts          # download blog posts → data/posts/
-bun run htmlToMarkdown    # convert posts → data/posts-md/  (voice input)
-bun run buildBankIndex    # regenerate experience-bank/index.md from claims.yaml
+bun run getPosts          # download blog posts → .tmp/posts/ (intermediate)
+bun run htmlToMarkdown    # convert posts → brainspace/data/voice-samples/  (voice input)
+bun run buildBankIndex    # regenerate the bank index.md from claims.yaml (in artifacts/contributions/)
 ```
 
 > **Quoting gotcha:** `extractGitData` / `processBacklog` take quoted args
@@ -68,16 +83,20 @@ bun run buildBankIndex    # regenerate experience-bank/index.md from claims.yaml
 ## Layout
 
 ```text
-experience-bank/              # the bank (claims.yaml), index renderer + index.md
-project-experience-summaries/ # large generated per-project summaries (bank input)
-datasources/                  # source git logs and CSV backlogs
-data/posts-md/                # blog posts in markdown (voice input)
-voice-cache/                  # cached voice signature
-specs/                        # roadmap (STATUS.md) + preserved prompt-IP reference docs
-lib/ tools/                   # support libs + deterministic parsers
-```
+REPO (mechanism only)
+  experience-bank/   # bank index renderer (buildIndex.ts) + README — NOT the bank data
+  lib/ tools/        # support libs + deterministic parsers (paths via lib/config.ts → KB.*)
+  getPosts.ts htmlToMarkdown.ts   # blog download + markdown conversion
+  specs/             # roadmap (STATUS.md) + preserved prompt-IP reference docs
+  .claude/skills/    # the primary interface
+  voice-cache/       # cached voice signature (allowed repo-local cache)
+  .tmp/              # re-derivable intermediates (raw posts, processed git data) — gitignored
 
-Skills are at the repo root: `.claude/skills/`.
+KNOWLEDGE BASE (~/Projects/brainspace — durable state)
+  data/{git-logs,backlogs,voice-samples}/   # inputs the tooling reads
+  WorkLife/atomic/worklog/                  # human "why" + cross-agent handoff
+  artifacts/{project-summaries,contributions,linkedin,bio}/   # outputs the tooling writes
+```
 
 ## When you change this repo
 

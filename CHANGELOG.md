@@ -8,6 +8,28 @@ versioning scheme is adopted.
 
 ## [Unreleased]
 
+### Changed (structure) — KB contract rewire (Phase 1)
+
+- **Migrated all durable state out of the repo into the brainspace knowledge base.** The repo is now
+  pure processing per the contract in `brainspace/WorkLife/self/notes/knowledge-base.md`. Moved:
+  `datasources/*` → `brainspace/data/{git-logs,backlogs}/`; `data/posts-md/*` (4703) →
+  `brainspace/data/voice-samples/`; `project-experience-summaries/*` (5) →
+  `brainspace/artifacts/project-summaries/`; `experience-bank/{claims.yaml,index.md}` →
+  `brainspace/artifacts/contributions/`. Raw downloaded posts (`data/posts/`) became the repo-local
+  intermediate `.tmp/posts/`. `voice-cache/` stays in the repo. Removed the emptied `datasources/`,
+  `project-experience-summaries/`, and `data/` dirs. See `specs/kb-contract-rewire.md`.
+- **Centralized paths in `lib/config.ts`**: added the resolved `KB` zone-path object and
+  `BRAINSPACE_ROOT` env var (default `~/Projects/brainspace`); repointed `PROCESSED_DATA_DIR` to the
+  non-durable `.tmp/processed`.
+- **Repointed all I/O** to the KB: `getPosts.ts` (`.tmp/posts/`), `htmlToMarkdown.ts` (reads
+  `.tmp/posts/`, writes `KB.VOICE_SAMPLES`), `experience-bank/buildIndex.ts` (reads/writes
+  `KB.CONTRIBUTIONS`, replacing the `import.meta.url` resolution), and the help-text examples in
+  `tools/extractGitData.ts` + `tools/processBacklog.ts`.
+- **Repointed all four skills** (`project-summary`, `experience-bank`, `tailored-render`,
+  `voice-signature`) to the brainspace zones; refreshed `AGENTS.md`, `README.md`, and
+  `experience-bank/README.md` (now documents the renderer; the bank data lives in the KB). Added
+  `.tmp/` to `.gitignore` and dropped the stale `data` ignore.
+
 ### Changed (structure)
 
 - **Flattened the repo.** Moved everything from `project-experience-artifacts/` to the repo root and

@@ -8,6 +8,7 @@ designed but intentionally parked · `done` = shipped · `superseded` = replaced
 
 | Spec | Status | Target branch | Last updated |
 | --- | --- | --- | --- |
+| [kb-contract-rewire.md](./kb-contract-rewire.md) | active | `feat/kb-contract-rewire` | 2026-06-24 |
 | [experience-bank.md](./experience-bank.md) | active | `experience-bank` | 2026-06-23 |
 | [skills-migration.md](./skills-migration.md) | done | `experience-bank` | 2026-06-23 |
 | [artifact-validation.md](./artifact-validation.md) | deferred | future | 2026-06-23 |
@@ -23,6 +24,10 @@ Reference docs (preserved prompt IP, not roadmap items):
 
 ## Working order for the next branch
 
+0. **kb-contract-rewire** (Phase 1, active) — repo rewired to the brainspace KB contract: paths
+   centralized in `lib/config.ts`, all state migrated out into `brainspace/{data,artifacts}/`, code
+   + skills repointed. Phases 2–4 (the `kind` dimension, worklog→bank enrichment, doc reconciliation)
+   follow.
 1. ~~**experience-bank**~~ — bank built and populated (active; curation is ongoing/conversational).
 2. ~~**skills-migration**~~ — **done**: 3 skills built, AI-SDK layer + generators deleted, IP preserved.
 3. ~~**model-sdk-modernization**~~ — **obsolete**: no API path left to modernize.

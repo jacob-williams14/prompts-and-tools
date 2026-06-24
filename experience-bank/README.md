@@ -1,9 +1,15 @@
 # Experience Bank
 
-The source of truth for Jacob's project experience: a tagged set of **claims** in
-[`claims.yaml`](./claims.yaml). Documents (LinkedIn, resume, a job-description-tailored set) are
-cheap **renders** over this bank — not the other way around. See
-[`../specs/experience-bank.md`](../specs/experience-bank.md) for the full design.
+The source of truth for Jacob's project experience: a tagged set of **claims** in `claims.yaml`.
+Documents (LinkedIn, resume, a job-description-tailored set) are cheap **renders** over this bank —
+not the other way around. See [`../specs/experience-bank.md`](../specs/experience-bank.md) for the
+full design.
+
+> **Location.** The bank data lives in the knowledge base at
+> `~/Projects/brainspace/artifacts/contributions/` (`claims.yaml` + generated `index.md`), not in this
+> repo. This directory holds only the **index renderer** (`buildIndex.ts`, run via
+> `bun run buildBankIndex`) and this README. Paths resolve through `lib/config.ts` (`KB.CONTRIBUTIONS`);
+> override the KB root with `$BRAINSPACE_ROOT`.
 
 ## Why a bank instead of a generator
 
@@ -42,6 +48,7 @@ Claims are stored already-anonymized: only "Atomic Object" is named; clients app
 
 ## Status
 
-Populated 2026-06-23 from `project-experience-summaries/*` (the generated upstream layer), 56 claims
-across 5 domains. Maintained via the `experience-bank` skill (see
+Populated 2026-06-23 from the project summaries (the generated upstream layer, now in
+`~/Projects/brainspace/artifacts/project-summaries/`), 56 claims across 5 domains. Maintained via the
+`experience-bank` skill (see
 [`../specs/skills-migration.md`](../specs/skills-migration.md)).

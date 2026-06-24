@@ -12,6 +12,10 @@ description: >-
 Produces the voice signature `tailored-render` applies so documents sound like Jacob. The signature
 is cached at `voice-cache/jacob-williams-voice.json`.
 
+> **Paths.** Voice-sample inputs live in the knowledge base at
+> `~/Projects/brainspace/data/voice-samples/` (root override: `$BRAINSPACE_ROOT`). The voice cache
+> and the `enriched-style-summaries-*.json` intermediates stay repo-local.
+
 ## No API
 
 You (Claude Code) are the model. Read the posts and write the signature directly — do not call any
@@ -19,7 +23,7 @@ API or the (removed) AI-SDK layer.
 
 ## Inputs
 
-Jacob's Atomic Spin blog posts, in markdown, under `data/posts-md/`.
+Jacob's Atomic Spin blog posts, in markdown, under `~/Projects/brainspace/data/voice-samples/`.
 If that directory is empty or missing, regenerate it first:
 
 ```bash
@@ -29,7 +33,7 @@ bun run htmlToMarkdown  # convert to markdown
 
 ## Process
 
-1. Read a representative sample of the posts in `data/posts-md/` (aim for 10+; more is better).
+1. Read a representative sample of the posts in `~/Projects/brainspace/data/voice-samples/` (aim for 10+; more is better).
 2. Analyze the voice: structural patterns, sentence rhythm, characteristic phrases, tone, humor,
    how ideas connect, audience relationship. Capture what makes it recognizably *his*, not generic.
 3. Write the signature as markdown following the structure of the existing
@@ -43,7 +47,7 @@ bun run htmlToMarkdown  # convert to markdown
 ## Optional: style-evolution analysis (richer signature)
 
 For a deeper signature, analyze the posts **by year** before writing the summary — this is the
-preserved capability from the retired `analyzeStyleOverTime` tool. Group `data/posts-md/` posts by
+preserved capability from the retired `analyzeStyleOverTime` tool. Group `~/Projects/brainspace/data/voice-samples/` posts by
 year and, per year, capture: `structurePattern`, `toneDescription`, `commonThemes[]`, `perspective`,
 `style`, `devices[]`, `depth`, `audience`. Write the per-year array to
 `enriched-style-summaries-<author>-<timestamp>.json` (the existing files are the format exemplar),

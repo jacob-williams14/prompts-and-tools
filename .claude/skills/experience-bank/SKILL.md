@@ -2,7 +2,7 @@
 name: experience-bank
 description: >-
   Maintain Jacob's experience bank — the tagged claim store at
-  experience-bank/claims.yaml. Use when adding, updating, tagging, or
+  artifacts/contributions/claims.yaml in the knowledge base. Use when adding, updating, tagging, or
   curating experience claims, or when pulling new claims from the generated project summaries into the
   bank. Triggers on "add a claim", "update the bank", "pull from the summaries", "re-tag", "rebuild
   the bank index".
@@ -10,22 +10,26 @@ description: >-
 
 # Experience Bank
 
-The bank (`experience-bank/claims.yaml`) is the source of truth for
+The bank (`~/Projects/brainspace/artifacts/contributions/claims.yaml`) is the source of truth for
 Jacob's project experience. Documents (LinkedIn, resume, JD-tailored sets) are RENDERS over it — see
 the `tailored-render` skill. This skill is for keeping the bank populated and accurate.
+
+> **Paths.** The bank and its inputs live in the knowledge base, rooted at `~/Projects/brainspace/`
+> (override with `$BRAINSPACE_ROOT`): summaries in `artifacts/project-summaries/`, the bank in
+> `artifacts/contributions/`. Bare `claims.yaml` references below mean that file.
 
 ## The pipeline (don't skip a layer)
 
 ```text
-datasources/ (git logs, CSVs)
-  → generateProjectSummary / analyzeProject  →  project-experience-summaries/*   (generated)
-      → EXTRACT (this skill)                 →  experience-bank/claims.yaml       (the bank)
+data/ (git logs in git-logs/, CSVs in backlogs/)
+  → project-summary skill                    →  artifacts/project-summaries/*   (generated)
+      → EXTRACT (this skill)                 →  artifacts/contributions/claims.yaml   (the bank)
           → RENDER (tailored-render skill)   →  LinkedIn / resume / JD
 ```
 
-Claims are pulled FROM `project-experience-summaries/*`, the generated upstream layer — not invented
-and not mined from raw logs directly. If a summary is missing or stale, regenerate it first with the
-project-summary tooling, then extract.
+Claims are pulled FROM `~/Projects/brainspace/artifacts/project-summaries/*`, the generated upstream
+layer — not invented and not mined from raw logs directly. If a summary is missing or stale,
+regenerate it first with the project-summary skill, then extract.
 
 ## No API
 
@@ -65,12 +69,14 @@ Each claim in `claims.yaml`:
 
 ## Need a summary first?
 
-If `project-experience-summaries/<project>-project-summary.md` doesn't exist yet, generate it with
-the **`project-summary`** skill (datasources → summary), then extract claims from it below.
+If `~/Projects/brainspace/artifacts/project-summaries/<project>-project-summary.md` doesn't exist
+yet, generate it with the **`project-summary`** skill (data → summary), then extract claims from it
+below.
 
 ## Adding claims from a summary
 
-1. Read the relevant `project-experience-summaries/<project>-project-summary.md` fully.
+1. Read the relevant
+   `~/Projects/brainspace/artifacts/project-summaries/<project>-project-summary.md` fully.
 2. List the project's existing claims in `claims.yaml` so you don't duplicate.
 3. Extract genuinely distinct accomplishments as claim blocks (schema above), anonymized.
 4. Append them under the right domain section of `claims.yaml`.
