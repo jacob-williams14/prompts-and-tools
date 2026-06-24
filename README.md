@@ -1,4 +1,4 @@
-# Project Experience Artifacts
+# Experience Engine
 
 Turns project data (git logs, CSV backlogs, blog posts) into career artifacts — LinkedIn entries,
 resume bullets, job-description-tailored sets. Built around an **experience bank** (the source of

@@ -5,7 +5,7 @@ Single source of truth for AI coding agents (Claude Code, Warp, Codex, etc.) wor
 
 ## What this repo is
 
-`prompts-and-tools` turns project data (git logs, CSV backlogs, blog posts) into career artifacts —
+`experience-engine` turns project data (git logs, CSV backlogs, blog posts) into career artifacts —
 LinkedIn entries, resume bullets, job-description-tailored sets. It's built around an **experience
 bank** (the source of truth) with cheap **renders** on top. **Generation is done by the agent
 directly — no API, no provider SDK.**
