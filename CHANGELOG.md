@@ -72,6 +72,9 @@ versioning scheme is adopted.
   claims across 5 domains.
 - Rewrote `project-experience-artifacts/README.md` to document the bank+skills architecture (the old
   one described the removed AI-generator system).
+- **Consolidated agent docs into a single `AGENTS.md`** (repo root) as the source of truth; `CLAUDE.md`
+  imports it (`@AGENTS.md`) and `WARP.md` points to it, so all agents share one set of instructions.
+  Refreshed the root `README.md` and removed the stale per-project `CLAUDE.md` (now covered by root).
 - LinkedIn profile Experience section regenerated from the **canonical synthesizer prompt** (run in
   `local` mode, no API) instead of a freehand draft. Removed a fabricated metric ("hundreds of
   thousands of cases") that the prompt's own rules forbid.
