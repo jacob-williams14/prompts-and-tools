@@ -63,6 +63,10 @@ This is what lets side/client projects produce claims without a full summary pas
 - **`agent_assisted: true | false`** on claims derived from agent sessions.
 - **`source`** generalized: the worklog filename for **any** worklog-sourced claim (was
   non-technical-only).
+- **`context: professional | personal`** — the bank's "Atomic-only" rule is dropped; it now holds
+  professional (Atomic/client) **and** personal/side-project experience, kept distinct so renders never
+  present a side project as paid client delivery. Professional is the default; `/log-work`-sourced
+  side-project work is `personal`. Surfaced in the index with a `· personal` marker.
 
 ## Confidentiality
 

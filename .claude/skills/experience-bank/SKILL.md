@@ -43,6 +43,7 @@ Each claim in `claims.yaml`:
 ```yaml
 - id: <domain-prefix>-<short-slug>     # stable, unique
   type: technical | non-technical       # technical = mined from project data; non-technical = the "why"
+  context: professional | personal      # professional = Atomic/client work; personal = side projects
   project: <internal-codename>          # NOT for output
   domain: <public-safe domain string>   # USE THIS in renders, never the client name
   themes: [technical leadership | system design | cross-domain adaptability | reliability | growth | devops/CI | i18n | testing]
@@ -112,8 +113,9 @@ the bank from the worklog" and by the weekly review. Source: `~/Projects/brainsp
    where you left off; don't rely on it to dedup.)
 3. **Extract** claims from each remaining entry — **`type: technical`** (what was built) and/or
    **`type: non-technical`** (a decision and why, who was mentored/unblocked, a process/leadership
-   move). On every extracted claim set `source:` to the worklog filename, and carry
-   `agent_assisted: true` if the entry's frontmatter says so. **Frame agent-assisted work at Jacob's
+   move). On every extracted claim set `source:` to the worklog filename, carry `agent_assisted: true`
+   if the entry's frontmatter says so, and set `context:` (`personal` for side projects, else
+   `professional`). **Frame agent-assisted work at Jacob's
    altitude** — what he directed, decided, reviewed, integrated — never "I built X" when an agent did
    most of it. Anonymize per the confidentiality rules below and honor the worklog's NDA note. **Never
    invent** — if an entry is still a template/placeholder (unfilled `⟵ add …` prompts, no real content
@@ -138,6 +140,10 @@ Jacob curates conversationally, not by editing YAML. When he says "bump X to fea
 hook", "add a claim about Y", make the edit in `claims.yaml` and rebuild the index. Strength/hook are
 only filters for renders, so they don't need to be perfect up front.
 
-## Atomic-only
+## Scope: professional + personal
 
-The bank holds Atomic Object experience only — Jacob has no pre-Atomic professional experience to add.
+The bank holds both **professional** experience (Atomic Object / client work — the bulk; Jacob has no
+pre-Atomic employer) and **personal / side-project** experience. Every claim carries
+`context: professional | personal` so renders can keep the two honest and distinct — never present a
+side project as paid client delivery. Professional is the default; set `context: personal` for
+side-project claims (these come forward via `/log-work` session logs).

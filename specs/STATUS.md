@@ -35,8 +35,9 @@ Reference docs (preserved prompt IP, not roadmap items):
    (`~/.claude/skills/log-work/`, tracked via dotfiles); writes session logs to the worklog. Bank side
    wired: enrich step now takes technical **or** non-technical from the worklog and carries
    `source` + `agent_assisted`. Exercised once (captured this build session) — the run surfaced and
-   fixed an H1-lint bug and a section-padding/fabrication issue. Still untested: enrichment *from* a
-   session log. See `log-work-capture.md`.
+   fixed an H1-lint bug and a section-padding/fabrication issue. Enrichment *from* the session log also
+   run — the gate surfaced a scope question, so the bank dropped "Atomic-only" and added
+   `context: professional | personal`; banked one personal claim. See `log-work-capture.md`.
 2. ~~**cowork-runnable-skills**~~ — **deferred (abandoned for now)**: the async worklog handoff loop
    already covers the workflow; the port's permanent sync cost isn't justified by speculative gain.
    Revisit only on real friction.

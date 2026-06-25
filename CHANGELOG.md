@@ -8,6 +8,17 @@ versioning scheme is adopted.
 
 ## [Unreleased]
 
+### Changed — bank scope: professional + personal (`context`)
+
+- **Dropped the "Atomic-only" rule.** The bank now holds professional (Atomic/client) **and**
+  personal/side-project experience, tagged `context: professional | personal` (default professional)
+  so renders keep paid client work distinct from side projects. Backfilled `context: professional`
+  on all 59 existing claims; the index shows a `· personal` marker. Updated the `experience-bank`
+  skill + `claims.yaml` schema.
+- **First worklog-sourced enrichment run, end to end:** captured this build session via `/log-work`,
+  ran the enrich-and-approve gate (which surfaced the scope question above), and banked one `personal`
+  technical claim (`tooling-experience-engine`). Bank: 59 → 60 claims; watermark → `2026-06-24`.
+
 ### Added — `/log-work` session capture + bank provenance
 
 - **`/log-work` skill (user-level, `~/.claude/skills/log-work/`, tracked via dotfiles)** — forward,

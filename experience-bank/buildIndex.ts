@@ -20,6 +20,7 @@ type ClaimType = "technical" | "non-technical";
 interface Claim {
 	id: string;
 	type?: ClaimType;
+	context?: "professional" | "personal";
 	project?: string;
 	domain: string;
 	themes?: string[];
@@ -101,7 +102,7 @@ lines.push("# Experience Bank — Index");
 lines.push("");
 lines.push(
 	"> Generated view of `claims.yaml` (the source of truth). Do not edit by hand — run " +
-		"`bun run buildBankIndex`. ★ = featured · ⚓ = hook."
+		"`bun run buildBankIndex`. ★ = featured · ⚓ = hook · `personal` = side project (else professional)."
 );
 lines.push("");
 lines.push(
@@ -124,7 +125,8 @@ for (const claimType of orderedTypes) {
 		for (const c of dlist) {
 			const marks = `${c.strength === "featured" ? "★ " : ""}${c.hook ? "⚓ " : ""}`;
 			const tech = c.tech && c.tech.length ? `  _(${c.tech.join(", ")})_` : "";
-			lines.push(`- ${marks}${firstSentence(c.keyword_rich ?? c.id)}${tech}  \`${c.id}\``);
+			const personal = c.context === "personal" ? "  · personal" : "";
+			lines.push(`- ${marks}${firstSentence(c.keyword_rich ?? c.id)}${tech}  \`${c.id}\`${personal}`);
 		}
 		lines.push("");
 	}
